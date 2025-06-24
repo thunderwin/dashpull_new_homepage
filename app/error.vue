@@ -35,6 +35,10 @@ const links = [{
   icon: 'i-lucide-credit-card',
   to: '/pricing'
 }, {
+  label: 'About',
+  icon: 'i-lucide-users',
+  to: '/about'
+}, {
   label: 'Blog',
   icon: 'i-lucide-pencil',
   to: '/blog'

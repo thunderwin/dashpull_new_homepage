@@ -1,13 +1,15 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('index', () => queryCollection('index').first())
+const { data: page } = await useAsyncData("index", () =>
+  queryCollection("index").first(),
+);
 
 useSeoMeta({
-  titleTemplate: '',
+  titleTemplate: "",
   title: page.value?.title,
   ogTitle: page.value?.title,
   description: page.value?.description,
-  ogDescription: page.value?.description
-})
+  ogDescription: page.value?.description,
+});
 </script>
 
 <template>
@@ -16,9 +18,17 @@ useSeoMeta({
       :title="page.hero.title"
       :description="page.hero.description"
       :links="page.hero.links"
+      style="
+        background-image: url(&quot;/images/bg.jpg&quot;);
+        background-size: 100% auto;
+        background-position: top;
+        background-repeat: no-repeat;
+      "
     >
       <template #top>
-        <div class="absolute rounded-full dark:bg-(--ui-primary) blur-[300px] size-60 sm:size-80 transform -translate-x-1/2 left-1/2 -translate-y-80" />
+        <div
+          class="absolute rounded-full dark:bg-(--ui-primary) blur-[300px] size-60 sm:size-80 transform -translate-x-1/2 left-1/2 -translate-y-80"
+        />
 
         <StarsBg />
       </template>
@@ -64,13 +74,13 @@ useSeoMeta({
           :key="index"
           variant="subtle"
           :description="testimonial.quote"
-          :ui="{ description: 'before:content-[open-quote] after:content-[close-quote]' }"
+          :ui="{
+            description:
+              'before:content-[open-quote] after:content-[close-quote]',
+          }"
         >
           <template #footer>
-            <UUser
-              v-bind="testimonial.user"
-              size="lg"
-            />
+            <UUser v-bind="testimonial.user" size="lg" />
           </template>
         </UPageCard>
       </UPageColumns>
@@ -78,12 +88,10 @@ useSeoMeta({
 
     <USeparator />
 
-    <UPageCTA
-      v-bind="page.cta"
-      variant="naked"
-      class="overflow-hidden"
-    >
-      <div class="absolute rounded-full dark:bg-(--ui-primary) blur-[250px] size-40 sm:size-50 transform -translate-x-1/2 left-1/2 -translate-y-80" />
+    <UPageCTA v-bind="page.cta" variant="naked" class="overflow-hidden">
+      <div
+        class="absolute rounded-full dark:bg-(--ui-primary) blur-[250px] size-40 sm:size-50 transform -translate-x-1/2 left-1/2 -translate-y-80"
+      />
 
       <StarsBg />
     </UPageCTA>

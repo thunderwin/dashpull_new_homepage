@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+nuxt3 项目，基于 nuxt ui pro 
+ui.nuxt.com
+确保你只使用nuxt ui 的组件
