@@ -1,0 +1,1 @@
+import{ar as s}from"./BOTxBsqd.js";function c(e,i,o){const t=e.findIndex(n=>s(n,i)),d=e.findIndex(n=>s(n,o));if(t===-1||d===-1)return[];const[x,f]=[t,d].sort((n,r)=>n-r);return e.slice(x,f+1)}export{c as f};

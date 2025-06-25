@@ -19,7 +19,7 @@ hero:
       to: https://github.com/nuxt-ui-pro/saas
       target: _blank
 sections:
-  - title: Enterprise-Grade Solutions
+  - title: 核心优势
     description: Transform your business with our comprehensive suite of tools. Built for scale, security, and seamless integration, our platform empowers teams to achieve more while maintaining complete control.
     id: features
     orientation: horizontal

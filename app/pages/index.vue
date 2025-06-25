@@ -18,6 +18,10 @@ useSeoMeta({
       :title="page.hero.title"
       :description="page.hero.description"
       :links="page.hero.links"
+      :ui="{
+        title: ' tracking-tight font-bold text-white',
+        description: 'text-white'
+      }"
       style="
         background-image: url(&quot;/images/bg.jpg&quot;);
         background-size: 100% auto;
