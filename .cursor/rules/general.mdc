@@ -4,7 +4,9 @@ globs:
 alwaysApply: true
 ---
 
-使用 i18n 做多语言
+使用 i18n 做多语言，加链接的时候 记得 
+const localePath = useLocalePath()
+
 后台是 strapi v4
 我使用 javascript ，不用 typescript
 

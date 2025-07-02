@@ -1,19 +1,32 @@
 <script setup lang="ts">
+const { locale, defaultLocale } = useI18n()
 const route = useRoute()
 
-const { data: post } = await useAsyncData(route.path, () => queryCollection('posts').path(route.path).first())
-if (!post.value) {
+// 获取URL中的slug参数
+const slug = route.params.slug as string
+
+// 查询对应语言的博客文章，使用locale筛选
+const { data: posts } = await useAsyncData(`posts-${locale.value}`, () => 
+  queryCollection('posts')
+    .where('locale', '=', locale.value)
+    .all()
+)
+
+// 从结果中找到包含slug的文章
+const post = posts.value?.find(p => p.path.includes(slug))
+
+if (!post) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
 }
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
-  return queryCollectionItemSurroundings('posts', route.path, {
+  return queryCollectionItemSurroundings('posts', post.path, {
     fields: ['description']
   })
 })
 
-const title = post.value.title
-const description = post.value.description
+const title = post.title
+const description = post.description
 
 useSeoMeta({
   title,
@@ -22,9 +35,9 @@ useSeoMeta({
   ogDescription: description
 })
 
-if (post.value.image?.src) {
+if (post.image?.src) {
   defineOgImage({
-    url: post.value.image.src
+    url: post.image.src
   })
 } else {
   defineOgImageComponent('Saas', {

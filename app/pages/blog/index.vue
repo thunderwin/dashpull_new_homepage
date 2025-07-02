@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { locale } = useI18n();
 const route = useRoute()
+const localePath = useLocalePath()
 
 // 根据当前 locale 查询对应语言的 blog 配置
 const { data: page } = await useAsyncData(
@@ -17,6 +18,14 @@ const { data: posts } = await useAsyncData(
     .where('locale', '=', locale.value)
     .all()
 )
+
+// 处理博客文章路径，移除语言前缀
+const getBlogPostPath = (postPath: string) => {
+  // 移除路径开头的语言前缀 (/en, /zh, /zh-Hant)
+  const cleanPath = postPath.replace(/^\/(en|zh|zh-Hant)/, '')
+  // 使用localePath生成正确的多语言链接
+  return localePath(cleanPath)
+}
 
 useSeoMeta({
   title: page.value?.title,
@@ -37,10 +46,11 @@ defineOgImageComponent('Saas')
 
     <UPageBody>
       <UBlogPosts>
+        <!-- {{ posts }} -->
         <UBlogPost
           v-for="(post, index) in posts"
           :key="index"
-          :to="post.path"
+          :to="getBlogPostPath(post.path)"
           :title="post.title"
           :description="post.description"
           :image="post.image"

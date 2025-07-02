@@ -1,20 +1,21 @@
 <script setup lang="ts">
 const route = useRoute()
 const { t } = useI18n()
+const localePath = useLocalePath()
 
 const items = computed(() => [{
   label: t('nav.docs'),
-  to: '/docs',
+  to: localePath('/docs'),
   active: route.path.startsWith('/docs')
 }, {
   label: t('nav.pricing'),
-  to: '/pricing'
+  to: localePath('/pricing')
 }, {
   label: t('nav.about'),
-  to: '/about'
+  to: localePath('/about')
 }, {
   label: t('nav.blog'),
-  to: '/blog'
+  to: localePath('/blog')
 }])
 </script>
 
@@ -39,14 +40,14 @@ const items = computed(() => [{
         :label="t('auth.login')"
         color="neutral"
         variant="ghost"
-        to="/login"
+        to="localePath('/login')"
       />
       <UButton
         :label="t('auth.register')"
         color="neutral"
         trailing-icon="i-lucide-arrow-right"
         class="hidden lg:flex"
-        to="/signup"
+        to="localePath('/signup')"
       />
     </template>
 
@@ -68,14 +69,14 @@ const items = computed(() => [{
         :label="t('auth.login')"
         color="neutral"
         variant="subtle"
-        to="/login"
+        to="localePath('/login')"
         block
         class="mb-3"
       />
       <UButton
         :label="t('auth.register')"
         color="neutral"
-        to="/signup"
+        to="localePath('/signup')"
         block
       />
     </template>
