@@ -40,14 +40,14 @@ const items = computed(() => [{
         :label="t('auth.login')"
         color="neutral"
         variant="ghost"
-        to="localePath('/login')"
+        :to="localePath('/login')"
       />
       <UButton
         :label="t('auth.register')"
         color="neutral"
         trailing-icon="i-lucide-arrow-right"
         class="hidden lg:flex"
-        to="localePath('/signup')"
+        :to="localePath('/signup')"
       />
     </template>
 
@@ -69,14 +69,14 @@ const items = computed(() => [{
         :label="t('auth.login')"
         color="neutral"
         variant="subtle"
-        to="localePath('/login')"
+        :to="localePath('/login')"
         block
         class="mb-3"
       />
       <UButton
         :label="t('auth.register')"
         color="neutral"
-        to="localePath('/signup')"
+        :to="localePath('/signup')"
         block
       />
     </template>

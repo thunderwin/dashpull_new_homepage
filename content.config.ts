@@ -45,7 +45,8 @@ export const collections = {
     source: '**/docs/**/*',
     schema: z.object({
       title: z.string().nonempty(),
-      description: z.string().nonempty()
+      description: z.string().nonempty(),
+      locale: z.string().optional()
     })
   }),
   posts: defineCollection({
