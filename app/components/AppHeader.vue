@@ -1,18 +1,19 @@
 <script setup lang="ts">
 const route = useRoute()
+const { t } = useI18n()
 
 const items = computed(() => [{
-  label: 'Docs',
+  label: t('nav.docs'),
   to: '/docs',
   active: route.path.startsWith('/docs')
 }, {
-  label: 'Pricing',
+  label: t('nav.pricing'),
   to: '/pricing'
 }, {
-  label: 'About',
+  label: t('nav.about'),
   to: '/about'
 }, {
-  label: 'Blog',
+  label: t('nav.blog'),
   to: '/blog'
 }])
 </script>
@@ -32,15 +33,16 @@ const items = computed(() => [{
     />
 
     <template #right>
+      <LanguageSwitcher />
       <UColorModeButton />
       <UButton
-        label="Sign in"
+        :label="t('auth.login')"
         color="neutral"
         variant="ghost"
         to="/login"
       />
       <UButton
-        label="Sign up"
+        :label="t('auth.register')"
         color="neutral"
         trailing-icon="i-lucide-arrow-right"
         class="hidden lg:flex"
@@ -57,8 +59,13 @@ const items = computed(() => [{
 
       <USeparator class="my-6" />
 
+      <div class="flex justify-between items-center mb-6">
+        <span class="text-sm text-gray-500">{{ t('common.language') }}</span>
+        <LanguageSwitcher />
+      </div>
+
       <UButton
-        label="Sign in"
+        :label="t('auth.login')"
         color="neutral"
         variant="subtle"
         to="/login"
@@ -66,7 +73,7 @@ const items = computed(() => [{
         class="mb-3"
       />
       <UButton
-        label="Sign up"
+        :label="t('auth.register')"
         color="neutral"
         to="/signup"
         block

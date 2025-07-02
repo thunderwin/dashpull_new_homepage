@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "首页",
+    "docs": "文档",
+    "blog": "博客",
+    "pricing": "定价",
+    "about": "关于"
+  },
+  "hero": {
+    "title": "AI驱动的股票与加密货币预测平台",
+    "subtitle": "使用先进的人工智能技术预测比特币和美股的每日走势",
+    "cta": "开始使用",
+    "learn_more": "了解更多"
+  },
+  "features": {
+    "ai_prediction": {
+      "title": "AI预测",
+      "description": "先进的机器学习算法分析市场数据，预测每日价格走势"
+    },
+    "crypto_stocks": {
+      "title": "加密货币与股票",
+      "description": "支持比特币、主要加密货币以及美股市场分析"
+    },
+    "real_time": {
+      "title": "实时数据",
+      "description": "实时市场数据流，提供最新的分析和预测"
+    },
+    "easy_to_use": {
+      "title": "易于使用",
+      "description": "直观的界面设计，适合新手和专业交易者"
+    }
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "view": "查看",
+    "search": "搜索",
+    "filter": "筛选",
+    "sort": "排序",
+    "refresh": "刷新",
+    "language": "语言"
+  },
+  "auth": {
+    "login": "登录",
+    "register": "注册",
+    "logout": "退出登录",
+    "email": "邮箱",
+    "password": "密码",
+    "forgot_password": "忘记密码？",
+    "remember_me": "记住我"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "overview": "概览",
+    "predictions": "预测",
+    "watchlist": "关注列表",
+    "portfolio": "投资组合",
+    "settings": "设置"
+  },
+  "stock": {
+    "symbol": "代码",
+    "price": "价格",
+    "change": "涨跌",
+    "volume": "成交量",
+    "market_cap": "市值",
+    "prediction": "预测",
+    "confidence": "置信度",
+    "bullish": "看涨",
+    "bearish": "看跌",
+    "neutral": "中性"
+  },
+  "time": {
+    "today": "今天",
+    "yesterday": "昨天",
+    "this_week": "本周",
+    "this_month": "本月",
+    "last_30_days": "过去30天"
+  },
+  "footer": {
+    "copyright": "© 2024 DashPull. 保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "contact": "联系我们"
+  }
+} 

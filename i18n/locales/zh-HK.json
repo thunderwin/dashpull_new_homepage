@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "首頁",
+    "docs": "文檔",
+    "blog": "網誌",
+    "pricing": "定價",
+    "about": "關於"
+  },
+  "hero": {
+    "title": "AI驅動的股票與加密貨幣預測平台",
+    "subtitle": "使用先進的人工智能技術預測比特幣和美股的每日走勢",
+    "cta": "開始使用",
+    "learn_more": "了解更多"
+  },
+  "features": {
+    "ai_prediction": {
+      "title": "AI預測",
+      "description": "先進的機器學習演算法分析市場數據，預測每日價格走勢"
+    },
+    "crypto_stocks": {
+      "title": "加密貨幣與股票",
+      "description": "支援比特幣、主要加密貨幣以及美股市場分析"
+    },
+    "real_time": {
+      "title": "即時數據",
+      "description": "即時市場數據流，提供最新的分析和預測"
+    },
+    "easy_to_use": {
+      "title": "易於使用",
+      "description": "直觀的介面設計，適合新手和專業交易者"
+    }
+  },
+  "common": {
+    "loading": "載入中...",
+    "error": "錯誤",
+    "success": "成功",
+    "cancel": "取消",
+    "confirm": "確認",
+    "save": "儲存",
+    "delete": "刪除",
+    "edit": "編輯",
+    "view": "檢視",
+    "search": "搜尋",
+    "filter": "篩選",
+    "sort": "排序",
+    "refresh": "重新整理",
+    "language": "語言"
+  },
+  "auth": {
+    "login": "登入",
+    "register": "註冊",
+    "logout": "登出",
+    "email": "電郵",
+    "password": "密碼",
+    "forgot_password": "忘記密碼？",
+    "remember_me": "記住我"
+  },
+  "dashboard": {
+    "title": "控制面板",
+    "overview": "概覽",
+    "predictions": "預測",
+    "watchlist": "關注清單",
+    "portfolio": "投資組合",
+    "settings": "設定"
+  },
+  "stock": {
+    "symbol": "代號",
+    "price": "價格",
+    "change": "升跌",
+    "volume": "成交量",
+    "market_cap": "市值",
+    "prediction": "預測",
+    "confidence": "置信度",
+    "bullish": "看漲",
+    "bearish": "看跌",
+    "neutral": "中性"
+  },
+  "time": {
+    "today": "今天",
+    "yesterday": "昨天",
+    "this_week": "本週",
+    "this_month": "本月",
+    "last_30_days": "過去30天"
+  },
+  "footer": {
+    "copyright": "© 2024 DashPull. 版權所有。",
+    "privacy": "私隱政策",
+    "terms": "服務條款",
+    "contact": "聯絡我們"
+  }
+} 

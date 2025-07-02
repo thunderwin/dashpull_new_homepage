@@ -42,7 +42,7 @@ const sectionSchema = z.object({
 export const collections = {
   docs: defineCollection({
     type: 'page',
-    source: '1.docs/**/*',
+    source: '**/docs/**/*',
     schema: z.object({
       title: z.string().nonempty(),
       description: z.string().nonempty()
@@ -50,10 +50,11 @@ export const collections = {
   }),
   posts: defineCollection({
     type: 'page',
-    source: '3.blog/**/*',
+    source: '**/blog/**/*',
     schema: z.object({
       title: z.string().nonempty(),
       description: z.string().nonempty(),
+      locale: z.string().optional(),
       image: z.object({ src: z.string().nonempty() }),
       authors: z.array(
         z.object({
@@ -67,11 +68,12 @@ export const collections = {
     })
   }),
   index: defineCollection({
-    source: '0.index.yml',
+    source: '**/index.yml',
     type: 'data',
     schema: z.object({
       title: z.string().nonempty(),
       description: z.string().nonempty(),
+      locale: z.string().optional(),
       hero: sectionSchema.extend({
         headline: z.object({
           label: z.string().nonempty(),
@@ -112,7 +114,7 @@ export const collections = {
     })
   }),
   pricing: defineCollection({
-    source: '2.pricing.yml',
+    source: '**/pricing.yml',
     type: 'data',
     schema: sectionSchema.extend({
       hero: z.object({
@@ -150,8 +152,10 @@ export const collections = {
     })
   }),
   blog: defineCollection({
-    source: '3.blog.yml',
+    source: '**/blog.yml',
     type: 'data',
-    schema: sectionSchema
+    schema: sectionSchema.extend({
+      locale: z.string().optional()
+    })
   })
 }

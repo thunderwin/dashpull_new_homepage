@@ -1,0 +1,16 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+使用 i18n 做多语言
+后台是 strapi v4
+我使用 javascript ，不用 typescript
+
+
+项目是使用ai 预测btc 或者 美股每天的走势, 
+
+这是我的目录 
+
+

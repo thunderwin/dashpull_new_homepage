@@ -1,8 +1,22 @@
 <script setup lang="ts">
+const { locale } = useI18n();
 const route = useRoute()
 
-const { data: page } = await useAsyncData('blog', () => queryCollection('blog').first())
-const { data: posts } = await useAsyncData(route.path, () => queryCollection('posts').all())
+// 根据当前 locale 查询对应语言的 blog 配置
+const { data: page } = await useAsyncData(
+  () => `blog-${locale.value}`, 
+  () => queryCollection('blog')
+    .where('locale', '=', locale.value)
+    .first()
+)
+
+// 查询对应语言的博客文章，使用 locale 字段
+const { data: posts } = await useAsyncData(
+  () => `posts-${locale.value}`, 
+  () => queryCollection('posts')
+    .where('locale', '=', locale.value)
+    .all()
+)
 
 useSeoMeta({
   title: page.value?.title,

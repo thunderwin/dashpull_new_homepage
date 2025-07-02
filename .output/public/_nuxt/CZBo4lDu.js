@@ -1,1 +1,0 @@
-import{a1 as a,A as s,o as c,s as e,bV as r,w as l,r as p,bW as d,bX as f}from"./BOTxBsqd.js";const m={};function u(n,i){const o=r,t=d,_=f;return c(),s("div",null,[e(o),e(t,null,{default:l(()=>[p(n.$slots,"default")]),_:3}),e(_)])}const b=a(m,[["render",u]]);export{b as default};

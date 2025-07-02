@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "home": "Home",
+    "docs": "Documentation",
+    "blog": "Blog",
+    "pricing": "Pricing",
+    "about": "About"
+  },
+  "hero": {
+    "title": "AI-Powered Stock & Crypto Prediction Platform",
+    "subtitle": "Predict daily trends for Bitcoin and US stocks using advanced artificial intelligence",
+    "cta": "Get Started",
+    "learn_more": "Learn More"
+  },
+  "features": {
+    "ai_prediction": {
+      "title": "AI Predictions",
+      "description": "Advanced machine learning algorithms analyze market data to predict daily price movements"
+    },
+    "crypto_stocks": {
+      "title": "Crypto & Stocks",
+      "description": "Support for Bitcoin, major cryptocurrencies, and US stock market analysis"
+    },
+    "real_time": {
+      "title": "Real-time Data",
+      "description": "Live market data feeds for up-to-date analysis and predictions"
+    },
+    "easy_to_use": {
+      "title": "Easy to Use",
+      "description": "Intuitive interface designed for both beginners and professional traders"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "refresh": "Refresh",
+    "language": "Language"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "forgot_password": "Forgot Password?",
+    "remember_me": "Remember Me"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Overview",
+    "predictions": "Predictions",
+    "watchlist": "Watchlist",
+    "portfolio": "Portfolio",
+    "settings": "Settings"
+  },
+  "stock": {
+    "symbol": "Symbol",
+    "price": "Price",
+    "change": "Change",
+    "volume": "Volume",
+    "market_cap": "Market Cap",
+    "prediction": "Prediction",
+    "confidence": "Confidence",
+    "bullish": "Bullish",
+    "bearish": "Bearish",
+    "neutral": "Neutral"
+  },
+  "time": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "this_week": "This Week",
+    "this_month": "This Month",
+    "last_30_days": "Last 30 Days"
+  },
+  "footer": {
+    "copyright": "© 2024 DashPull. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact Us"
+  }
+} 

@@ -1,6 +1,12 @@
-<script setup lang="ts">
-const { data: page } = await useAsyncData("index", () =>
-  queryCollection("index").first(),
+<script setup>
+const { locale, defaultLocale } = useI18n();
+const route = useRoute();
+
+const { data: page } = await useAsyncData(
+  () => `index-${locale.value}`,
+  () => queryCollection("index")
+    .where('locale', '=', locale.value)
+    .first(),
 );
 
 useSeoMeta({
@@ -20,7 +26,7 @@ useSeoMeta({
       :links="page.hero.links"
       :ui="{
         title: ' tracking-tight font-bold text-white',
-        description: 'text-white'
+        description: 'text-white',
       }"
       style="
         background-image: url(&quot;/images/bg.jpg&quot;);
