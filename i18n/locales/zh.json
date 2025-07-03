@@ -185,6 +185,45 @@
     "results": "筛选结果",
     "no_results_yet": "请设置筛选条件以查看结果"
   },
+  "about": {
+    "title": "关于我们 - Dashpull 发展历程",
+    "description": "了解 Dashpull 从 2016 年开始探索 AI 金融预测到 2025 年实现自动交易平台的发展历程",
+    "hero": {
+      "title": "关于我们",
+      "description": "Dashpull 发展历程"
+    },
+    "story": {
+      "title": "从 AI 探索到自动交易",
+      "description": "Dashpull 并不是突然出现，而是基于多年的探索和实践，我们从 2016 年开始探索基于 AGI 的金融预测，最终在 2025 年实现了比特币的每日预测和自动交易。"
+    },
+    "current": {
+      "title": "今天的 Dashpull",
+      "ai": {
+        "title": "AI 驱动",
+        "description": "基于多年研发的人工智能技术，实现稳定的金融预测和自动交易"
+      },
+      "trading": {
+        "title": "自动交易",
+        "description": "每日自动交易，无需人工干预，AI 系统独立运行"
+      },
+      "reliability": {
+        "title": "稳定可靠",
+        "description": "经过多年测试和优化，提供可靠的交易策略和风险控制"
+      }
+    },
+    "mission": {
+      "title": "我们的使命",
+      "description": "我们致力于通过先进的人工智能技术，为用户提供稳定、可靠的金融预测和自动交易服务，让投资变得更加智能和高效。",
+      "vision": {
+        "title": "愿景",
+        "description": "成为全球领先的 AI 金融预测平台，为投资者创造长期稳定的收益"
+      },
+      "values": {
+        "title": "价值观",
+        "description": "坚持技术创新、透明诚信、稳健发展，为用户创造真正的价值"
+      }
+    }
+  },
   "footer": {
     "copyright": "© 2024 DashPull. 保留所有权利。",
     "privacy": "隐私政策",

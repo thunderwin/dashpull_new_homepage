@@ -185,6 +185,45 @@
     "results": "Results",
     "no_results_yet": "Please set filter criteria to view results"
   },
+  "about": {
+    "title": "About Us - Dashpull Development History",
+    "description": "Learn about Dashpull's journey from exploring AI financial prediction since 2016 to achieving automated trading platform in 2025",
+    "hero": {
+      "title": "About Us",
+      "description": "Dashpull Development History"
+    },
+    "story": {
+      "title": "From AI Exploration to Automated Trading",
+      "description": "Dashpull did not appear suddenly, but is based on years of exploration and practice. We started exploring AGI-based financial prediction in 2016, and finally achieved daily Bitcoin prediction and automated trading in 2025."
+    },
+    "current": {
+      "title": "Today's Dashpull",
+      "ai": {
+        "title": "AI-Driven",
+        "description": "Based on years of AI technology development, achieving stable financial prediction and automated trading"
+      },
+      "trading": {
+        "title": "Automated Trading",
+        "description": "Daily automated trading without human intervention, AI system operates independently"
+      },
+      "reliability": {
+        "title": "Stable & Reliable",
+        "description": "Tested and optimized over years, providing reliable trading strategies and risk control"
+      }
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "We are committed to providing users with stable and reliable financial prediction and automated trading services through advanced artificial intelligence technology, making investment more intelligent and efficient.",
+      "vision": {
+        "title": "Vision",
+        "description": "To become the world's leading AI financial prediction platform, creating long-term stable returns for investors"
+      },
+      "values": {
+        "title": "Values",
+        "description": "Committed to technological innovation, transparency, integrity, and steady development, creating real value for users"
+      }
+    }
+  },
   "footer": {
     "copyright": "© 2024 DashPull. All rights reserved.",
     "privacy": "Privacy Policy",

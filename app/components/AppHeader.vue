@@ -11,12 +11,15 @@ const items = computed(() => [{
   label: t('nav.screeners'),
   to: localePath('/screeners'),
   active: route.path.startsWith('/screeners')
-}, {
-  label: t('nav.pricing'),
-  to: localePath('/pricing')
-}, {
+}, 
+// {
+//   label: t('nav.pricing'),
+//   to: localePath('/pricing')
+// }, 
+
+{
   label: t('nav.about'),
-  to: localePath('/about')
+  to: localePath('/blog/about-dashpull-journey')
 }, {
   label: t('nav.blog'),
   to: localePath('/blog')
@@ -43,7 +46,7 @@ const items = computed(() => [{
 
     <template #right>
       <LanguageSwitcher />
-      <UColorModeButton />
+      <!-- <UColorModeButton /> -->
       <UButton
         :label="t('auth.login')"
         color="neutral"

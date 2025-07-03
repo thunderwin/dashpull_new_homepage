@@ -185,6 +185,45 @@
     "results": "篩選結果",
     "no_results_yet": "請設置篩選條件以查看結果"
   },
+  "about": {
+    "title": "關於我們 - Dashpull 發展歷程",
+    "description": "了解 Dashpull 從 2016 年開始探索 AI 金融預測到 2025 年實現自動交易平台的發展歷程",
+    "hero": {
+      "title": "關於我們",
+      "description": "Dashpull 發展歷程"
+    },
+    "story": {
+      "title": "從 AI 探索到自動交易",
+      "description": "Dashpull 並不是突然出現，而是基於多年的探索和實踐，我們從 2016 年開始探索基於 AGI 的金融預測，最終在 2025 年實現了比特幣的每日預測和自動交易。"
+    },
+    "current": {
+      "title": "今天的 Dashpull",
+      "ai": {
+        "title": "AI 驅動",
+        "description": "基於多年研發的人工智能技術，實現穩定的金融預測和自動交易"
+      },
+      "trading": {
+        "title": "自動交易",
+        "description": "每日自動交易，無需人工干預，AI 系統獨立運行"
+      },
+      "reliability": {
+        "title": "穩定可靠",
+        "description": "經過多年測試和優化，提供可靠的交易策略和風險控制"
+      }
+    },
+    "mission": {
+      "title": "我們的使命",
+      "description": "我們致力於通過先進的人工智能技術，為用戶提供穩定、可靠的金融預測和自動交易服務，讓投資變得更加智能和高效。",
+      "vision": {
+        "title": "願景",
+        "description": "成為全球領先的 AI 金融預測平台，為投資者創造長期穩定的收益"
+      },
+      "values": {
+        "title": "價值觀",
+        "description": "堅持技術創新、透明誠信、穩健發展，為用戶創造真正的價值"
+      }
+    }
+  },
   "footer": {
     "copyright": "© 2024 DashPull. 版權所有。",
     "privacy": "私隱政策",

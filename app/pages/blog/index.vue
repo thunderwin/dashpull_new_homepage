@@ -44,10 +44,10 @@ defineOgImageComponent('Saas')
 
 <template>
   <UContainer>
-    <UPageHeader
+    <!-- <UPageHeader
       v-bind="page"
       class="py-[50px]"
-    />
+    /> -->
 
     <UPageBody>
       <UBlogPosts>
