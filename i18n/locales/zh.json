@@ -44,7 +44,9 @@
     "filter": "筛选",
     "sort": "排序",
     "refresh": "刷新",
-    "language": "语言"
+    "language": "语言",
+    "no_data": "暂无数据",
+    "last_updated": "最后更新"
   },
   "auth": {
     "login": "登录",
@@ -81,6 +83,39 @@
     "this_week": "本周",
     "this_month": "本月",
     "last_30_days": "过去30天"
+  },
+  "prediction_component": {
+    "loading": "正在加载预测数据...",
+    "error": "加载预测数据失败",
+    "no_prediction_yet": "预测尚未发布",
+    "side_long": "看涨",
+    "side_short": "看跌", 
+    "current_prediction": "当前预测",
+    "market_score": "市场评分",
+    "no_suggestion": "暂无建议",
+    "market_score_too_low": "市场评分过低，暂不建议操作",
+    "prediction_history": "预测历史"
+  },
+  "market_overview": {
+    "loading": "正在加载市场数据...",
+    "error": "加载市场数据失败",
+    "current_market_sentiment": "当前市场情绪",
+    "fear_greed_index": "恐惧贪婪指数",
+    "volume_change": "成交量变化",
+    "advancing_stocks": "上涨家数",
+    "declining_stocks": "下跌家数",
+    "top_sectors": "热门板块",
+    "market_analysis": "市场分析",
+    "technology": "科技",
+    "healthcare": "医疗",
+    "finance": "金融",
+    "sentiment": {
+      "extreme_greed": "极度贪婪",
+      "greed": "贪婪",
+      "neutral": "中性",
+      "fear": "恐惧",
+      "extreme_fear": "极度恐惧"
+    }
   },
   "footer": {
     "copyright": "© 2024 DashPull. 保留所有权利。",

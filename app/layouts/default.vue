@@ -1,7 +1,7 @@
 <template>
   <div>
     <AppHeader />
-
+    <MarketOverview />
     <UMain>
       <slot />
     </UMain>

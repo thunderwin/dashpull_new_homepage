@@ -44,7 +44,9 @@
     "filter": "篩選",
     "sort": "排序",
     "refresh": "重新整理",
-    "language": "語言"
+    "language": "語言",
+    "no_data": "暫無資料",
+    "last_updated": "最後更新"
   },
   "auth": {
     "login": "登入",
@@ -81,6 +83,39 @@
     "this_week": "本週",
     "this_month": "本月",
     "last_30_days": "過去30天"
+  },
+  "prediction_component": {
+    "loading": "正在載入預測資料...",
+    "error": "載入預測資料失敗",
+    "no_prediction_yet": "預測尚未發佈",
+    "side_long": "看漲",
+    "side_short": "看跌",
+    "current_prediction": "當前預測",
+    "market_score": "市場評分",
+    "no_suggestion": "暫無建議",
+    "market_score_too_low": "市場評分過低，暫不建議操作",
+    "prediction_history": "預測歷史"
+  },
+  "market_overview": {
+    "loading": "正在載入市場資料...",
+    "error": "載入市場資料失敗",
+    "current_market_sentiment": "當前市場情緒",
+    "fear_greed_index": "恐懼貪婪指數",
+    "volume_change": "成交量變化",
+    "advancing_stocks": "上漲家數",
+    "declining_stocks": "下跌家數",
+    "top_sectors": "熱門板塊",
+    "market_analysis": "市場分析",
+    "technology": "科技",
+    "healthcare": "醫療",
+    "finance": "金融",
+    "sentiment": {
+      "extreme_greed": "極度貪婪",
+      "greed": "貪婪",
+      "neutral": "中性",
+      "fear": "恐懼",
+      "extreme_fear": "極度恐懼"
+    }
   },
   "footer": {
     "copyright": "© 2024 DashPull. 版權所有。",

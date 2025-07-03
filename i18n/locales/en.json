@@ -44,7 +44,9 @@
     "filter": "Filter",
     "sort": "Sort",
     "refresh": "Refresh",
-    "language": "Language"
+    "language": "Language",
+    "no_data": "No data available",
+    "last_updated": "Last updated"
   },
   "auth": {
     "login": "Login",
@@ -81,6 +83,39 @@
     "this_week": "This Week",
     "this_month": "This Month",
     "last_30_days": "Last 30 Days"
+  },
+  "prediction_component": {
+    "loading": "Loading prediction data...",
+    "error": "Failed to load prediction data",
+    "no_prediction_yet": "Prediction not published yet",
+    "side_long": "Long",
+    "side_short": "Short",
+    "current_prediction": "Current Prediction",
+    "market_score": "Market Score",
+    "no_suggestion": "No Suggestion",
+    "market_score_too_low": "Market score too low, no recommendation",
+    "prediction_history": "Prediction History"
+  },
+  "market_overview": {
+    "loading": "Loading market data...",
+    "error": "Failed to load market data",
+    "current_market_sentiment": "Current Market Sentiment",
+    "fear_greed_index": "Fear & Greed Index",
+    "volume_change": "Volume Change",
+    "advancing_stocks": "Advancing Stocks",
+    "declining_stocks": "Declining Stocks",
+    "top_sectors": "Top Sectors",
+    "market_analysis": "Market Analysis",
+    "technology": "Technology",
+    "healthcare": "Healthcare",
+    "finance": "Finance",
+    "sentiment": {
+      "extreme_greed": "Extreme Greed",
+      "greed": "Greed",
+      "neutral": "Neutral",
+      "fear": "Fear",
+      "extreme_fear": "Extreme Fear"
+    }
   },
   "footer": {
     "copyright": "© 2024 DashPull. All rights reserved.",

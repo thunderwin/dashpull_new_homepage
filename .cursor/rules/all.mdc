@@ -5,6 +5,6 @@ alwaysApply: true
 ---
 nuxt3 项目，基于 nuxt ui pro 
 ui.nuxt.com
-确保你只使用nuxt ui 的组件
+确保你优先使用nuxt ui 的组件
 
 这个项目是做 stock screener 的 多语言网站

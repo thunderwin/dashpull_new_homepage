@@ -1,150 +1,80 @@
-title: Nuxt UI Pro - SaaS template
-description: Nuxt UI Pro is a collection of premium Vue components built on top of Nuxt UI to create beautiful & responsive Nuxt applications in minutes.
+title: DashPull - AI驅動的股票與加密貨幣預測平台
+description: 全球唯一每日市場多空預測交易平台。基於通用人工智能（AGI），我們的模型準確預測標普500指數的方向以執行盈利交易。
 locale: zh-Hant
 navigation: false
 hero:
-  title: 麦神帮助中国企业走向全球
-  description: 世界上最强大的电子商务系统Magento
+  title: 全球唯一每日市場多空預測交易平台
+  description: 基於通用人工智能（AGI），我們的模型準確預測標普500指數的方向以執行盈利交易。
   links:
-    - label: Get started
+    - label: 開始使用
       icon: i-lucide-arrow-right
       trailing: true
-      to: https://ui.nuxt.com/getting-started/installation/pro/nuxt
-      target: _blank
+      to: /dashboard
       size: xl
-    - label: Use this template
-      icon: i-simple-icons-github
+    - label: 查看預測
+      icon: i-lucide-trending-up
       size: xl
       color: neutral
       variant: subtle
-      to: https://github.com/nuxt-ui-pro/saas
-      target: _blank
+      to: /predictions
 sections:
-  - title: 核心优势
-    description: Transform your business with our comprehensive suite of tools. Built for scale, security, and seamless integration, our platform empowers teams to achieve more while maintaining complete control.
+  - title: AI預測交易平台
+    description: 使用先進的人工智能技術預測每日市場趨勢，真正的電腦化交易。具有強大的穩定性和長期運行能力。
     id: features
     orientation: horizontal
     features:
-      - name: Developer-First
-        description: Built by developers for developers, with extensive API documentation and flexible integration options.
-        icon: i-lucide-cog
-      - name: 99.9% Uptime
-        description: Enterprise-grade infrastructure with guaranteed reliability and automatic failover protection.
-        icon: i-lucide-check
-      - name: Bank-Level Security
-        description: SOC 2 Type II certified with end-to-end encryption and advanced threat detection.
-        icon: i-lucide-lock
-  - title: Optimized for Growth
-    description: Scale your business confidently with our enterprise-ready platform. From startups to Fortune 500 companies, we provide the tools and support you need to succeed.
-    orientation: horizontal
-    reverse: true
-    features:
-      - name: Lightning Fast
-        description: Global CDN with sub-100ms latency and automatic performance optimization.
-        icon: i-lucide-rocket
-      - name: Predictable Pricing
-        description: Transparent, usage-based pricing with no hidden fees and volume discounts.
-        icon: i-lucide-circle-dollar-sign
-      - name: Infinite Scale
-        description: Auto-scaling architecture handles millions of requests without breaking a sweat.
-        icon: i-lucide-chart-bar
+      - name: 真正基於AI的預測交易
+        description: 使用先進的人工智能技術預測每日市場趨勢，真正的電腦化交易。具有強大的穩定性和長期運行能力。
+        icon: i-lucide-brain
+      - name: 可驗證、可證偽
+        description: 每日預測在線發布，可驗證、可證偽、可重複，數據說話。
+        icon: i-lucide-check-circle
+      - name: 風險可控
+        description: 每日結算、每日清算、定時進出、強制止損。
+        icon: i-lucide-shield-check
 features:
-  title: Features That Set Us Apart
-  description: Our platform combines enterprise-grade reliability with developer-friendly features, providing everything you need to build and scale your applications.
+  title: 為什麼選擇DashPull？
+  description: 基於AI的金融市場預測平台，盈虧比約為1:1，勝率超過60%。
   items:
-    - title: Developer Experience
-      description: Comprehensive documentation, powerful CLI tools, and intuitive APIs that make development a joy.
-      icon: i-lucide-cog
-    - title: Enterprise Ready
-      description: SOC 2 Type II certified, GDPR compliant, with 24/7 enterprise support and dedicated success managers.
-      icon: i-lucide-check
-    - title: Advanced Security
-      description: Multi-factor authentication, role-based access control, and audit logs keep your data protected.
-      icon: i-lucide-lock
-    - title: Global Performance
-      description: Edge computing network spans 200+ locations ensuring lightning-fast response times worldwide.
-      icon: i-lucide-rocket
-    - title: Flexible Pricing
-      description: Pay only for what you use with transparent pricing and no long-term commitments required.
-      icon: i-lucide-circle-dollar-sign
-    - title: Infinite Scalability
-      description: Built on cloud-native architecture that automatically scales to meet any demand.
-      icon: i-lucide-chart-bar
+    - title: 真正基於AI的預測交易
+      description: 使用先進的人工智能技術預測每日市場趨勢，真正的電腦化交易。具有強大的穩定性和長期運行能力。
+      icon: i-lucide-brain
+    - title: 可驗證、可證偽
+      description: 每日預測在線發布，可驗證、可證偽、可重複，數據說話。
+      icon: i-lucide-check-circle
+    - title: 風險可控
+      description: 每日結算、每日清算、定時進出、強制止損。
+      icon: i-lucide-shield-check
+    - title: 每個交易日開盤前準時發布
+      description: 每個交易日開盤前 90 分鐘準時發布預測，給你充足的時間進行決策和思考。
+      icon: i-lucide-clock
+    - title: 加密貨幣預測
+      description: 也可以預測加密貨幣市場，涵蓋傳統股票和數位資產。
+      icon: i-lucide-bitcoin
+    - title: 專業支援
+      description: 專家團隊提供24小時技術支援和答疑解惑。
+      icon: i-lucide-headphones
 testimonials:
-  headline: Customer Success Stories
-  title: Trusted by Industry Leaders
-  description: Join thousands of companies worldwide who have transformed their digital presence with our platform.
+  headline: 常見問題
+  title: 常見問題解答
+  description: 關於我們AI預測平台及其工作原理的常見問題。
   items:
-    - quote: "The developer experience is unmatched. We migrated our entire infrastructure in weeks instead of months, and our team's productivity has increased dramatically. The TypeScript support and component library saved us months of development time."
-      user:
-        name: Sarah Chen
-        description: CTO at TechScale Solutions
-        avatar:
-          src: https://i.pravatar.cc/120?img=1
-    - quote: "After implementing the edge computing features, our global application response times dropped by 70%. Our European and Asian markets saw immediate improvements in user engagement and conversion rates."
-      user:
-        name: Marcus Rodriguez
-        description: VP of Engineering at DataFlow
-        avatar:
-          src: https://i.pravatar.cc/120?img=7
-    - quote: "The platform's security features gave us peace of mind during our SOC 2 certification. The built-in compliance tools and audit logs made the process seamless."
-      user:
-        name: David Kumar
-        description: Security Director at SecureStack
-        avatar:
-          src: https://i.pravatar.cc/120?img=3
-    - quote: "During our Black Friday sale, we handled 15x our normal traffic without a hitch. The auto-scaling features worked flawlessly, and our monitoring dashboard gave us real-time insights throughout the event."
-      user:
-        name: Emily Zhang
-        description: Lead Architect at ScaleForce
-        avatar:
-          src: https://i.pravatar.cc/120?img=5
-    - quote: "The support team goes above and beyond. They helped us optimize our CI/CD pipeline and suggested performance improvements that reduced our build times by 45%."
-      user:
-        name: James Wilson
-        description: DevOps Lead at CloudPro
-        avatar:
-          src: https://i.pravatar.cc/120?img=8
-    - quote: "Switching to this platform reduced our infrastructure costs by 40% while improving performance. The cost savings alone paid for the investment within the first quarter."
-      user:
-        name: Lisa Patel
-        description: CEO at AutoScale
-        avatar:
-          src: https://i.pravatar.cc/120?img=9
-    - quote: "The accessibility features and responsive components helped us achieve WCAG 2.1 compliance with minimal custom development. Our site now scores 100 on Lighthouse accessibility metrics."
-      user:
-        name: Michael Torres
-        description: Frontend Lead at AccessFirst
-        avatar:
-          src: https://i.pravatar.cc/120?img=11
-    - quote: "We serve millions of API requests daily, and the real-time analytics and monitoring tools have been invaluable for optimizing our performance and identifying bottlenecks."
-      user:
-        name: Rachel Kim
-        description: Performance Engineer at APIHub
-        avatar:
-          src: https://i.pravatar.cc/120?img=10
-    - quote: "The component library and design system tools helped us maintain consistency across our 20+ micro-frontends. Our development velocity has never been better."
-      user:
-        name: Thomas Weber
-        description: UI Architecture Lead at DesignScale
-        avatar:
-          src: https://i.pravatar.cc/120?img=12
-    - quote: "Integration with our existing tools was seamless. The webhooks and API documentation made it easy to automate our workflows and enhance our development pipeline."
-      user:
-        name: Sophia Martinez
-        description: Integration Specialist at TechFlow
-        avatar:
-          src: https://i.pravatar.cc/120?img=14
+    - quote: "<strong>市場上有很多聲稱AI預測的交易機器，為什麼應該相信你們？</strong> 我們知道世界上有很多聲稱AI交易的機器人，但首先，它們都無法提供確鑿證據證明自己的策略。我們的交易模型是可證明、可追溯、可驗證的。你只需要跟隨我們一段時間，就能發現我們說的是否屬實。"
+    - quote: "<strong>使用你們的服務能保證賺錢嗎？</strong> 不能。事實上，世界上沒有人能保證你做任何事情都能賺錢。但我們很可能幫助你賺錢，因為我們的預測能力是可驗證的，不是靠運氣，一切都基於數學。"
+    - quote: "<strong>如何驗證你們的AI能力？</strong> 其實很簡單。你只需要訂閱我們的郵件列表，我們會在每天每次交易前發送加密的交易方向給你。或者更簡單，你可以直接訂閱我們的Telegram頻道，我們會同時發布我們的預測，這樣你就可以在我們完成交易後驗證它們。通常，你只需要大約一週時間就能發現我們的預測是否真的準確。"
+    - quote: "<strong>如何提取利潤？</strong> 正如我們一直說的，你可以隨時提取利潤或本金。在每次交易結束時，你的利潤在扣除我們的佣金後，會自動轉入你的賬戶，幾乎沒有延遲。"
+    - quote: "<strong>你們在哪裡完成交易？</strong> 我們主要透過主流大型交易所完成交易，如幣安、IBKR等世界最大的交易所。這是為了確保我們的資金安全和交易效率。如果能節省費用，我們未來可能會探索透過去中心化交易所完成交易。"
+    - quote: "<strong>為什麼在交易前發布密文？</strong> 發布密文的目的是證明我們確實依靠預測進行交易，但同時我們不需要提前暴露我們的方向。否則，其他人可能會模仿我們的策略。我們的設計是為了證明我們帶給你的利潤確實是透過交易獲得的，而不是龐氏騙局。"
+    - quote: "<strong>如何確認或確保你們的密文是真實的？</strong> 我們會在交易結束時發布原文。密文是使用SHA256演算法加密的，任何人都可以透過重新加密原文來與我們發布的密文進行比較，從而確認我們提前就知道原文。"
+    - quote: "<strong>你們的AI能力能持續保持嗎？還是只是暫時的？</strong> 你的擔憂也是我們正在考慮的。事實上，我們也不確定，但目前看來非常穩定。所以我們有理由相信它能在很長一段時間內保持穩定，至少幾年。"
 cta:
-  title: Start with Nuxt UI Pro today!
-  description: Nuxt UI Pro is free in development, but you need a license to use it in production.
+  title: 立即開始您的AI投資之旅！
+  description: 加入我們的投資社區，獲取專業的AI驅動股票和加密貨幣預測。讓科技為您的投資保駕護航。
   links:
-    - label: Buy now
-      to: 'https://ui.nuxt.com/pro/purchase'
-      target: _blank
-      icon: i-lucide-shopping-cart
-    - label: License
-      to: 'https://ui.nuxt.com/getting-started/license'
+    - label: 免費試用
+      to: '/signup'
+      icon: i-lucide-rocket
+    - label: 查看定價
+      to: '/pricing'
       trailingIcon: i-lucide-circle-help
-      target: _blank
       variant: subtle

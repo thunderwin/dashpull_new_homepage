@@ -24,16 +24,8 @@ useSeoMeta({
       :title="page.hero.title"
       :description="page.hero.description"
       :links="page.hero.links"
-      :ui="{
-        title: ' tracking-tight font-bold text-white',
-        description: 'text-white',
-      }"
-      style="
-        background-image: url(&quot;/images/bg.jpg&quot;);
-        background-size: 100% auto;
-        background-position: top;
-        background-repeat: no-repeat;
-      "
+      
+     
     >
       <template #top>
         <div
@@ -45,18 +37,6 @@ useSeoMeta({
 
       <PromotionalVideo />
     </UPageHero>
-
-    <UPageSection
-      v-for="(section, index) in page.sections"
-      :key="index"
-      :title="section.title"
-      :description="section.description"
-      :orientation="section.orientation"
-      :reverse="section.reverse"
-      :features="section.features"
-    >
-      <ImagePlaceholder />
-    </UPageSection>
 
     <UPageSection
       :title="page.features.title"
@@ -83,14 +63,9 @@ useSeoMeta({
           v-for="(testimonial, index) in page.testimonials.items"
           :key="index"
           variant="subtle"
-          :description="testimonial.quote"
-          :ui="{
-            description:
-              'before:content-[open-quote] after:content-[close-quote]',
-          }"
         >
-          <template #footer>
-            <UUser v-bind="testimonial.user" size="lg" />
+          <template #description>
+            <div v-html="testimonial.quote"></div>
           </template>
         </UPageCard>
       </UPageColumns>
