@@ -67,6 +67,9 @@ testimonials:
     - quote: "<strong>Why do you release a ciphertext before trading?</strong> The purpose of releasing the ciphertext is to prove that we indeed rely on predictions for trading, but at the same time, we do not need to expose our direction in advance. Otherwise, others could imitate our strategy. Our design is to prove that the profits we bring to you are indeed obtained through trading, not a Ponzi scheme."
     - quote: "<strong>How can I confirm or ensure that your ciphertext is genuine?</strong> We will release the original text at the end of the transaction. The ciphertext is encrypted using the SHA256 algorithm, and anyone can compare it with the ciphertext we released by encrypting the original text again, thereby confirming that we already knew the original text in advance."
     - quote: "<strong>Can your AI capabilities be maintained continuously? Or is it just temporary?</strong> Your concern is also something we are considering. In fact, we are not sure either, but for now, it seems very stable. So we have reason to believe it can remain stable for a long period, at least for a few years."
+email_subscription:
+  title: Subscribe to Our AI Prediction Reports
+  description: Get daily professional market analysis and AI prediction signals, never miss any investment opportunities.
 cta:
   title: Start Your AI Investment Journey Today!
   description: Join our investment community and get professional AI-powered stock and cryptocurrency predictions. Let technology safeguard your investments.
@@ -74,7 +77,7 @@ cta:
     - label: Free Trial
       to: '/signup'
       icon: i-lucide-rocket
-    - label: View Pricing
-      to: '/pricing'
+    - label: View Plans
+      to: '/plans'
       trailingIcon: i-lucide-circle-help
       variant: subtle

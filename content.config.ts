@@ -114,44 +114,7 @@ export const collections = {
       })
     })
   }),
-  pricing: defineCollection({
-    source: '**/pricing.yml',
-    type: 'data',
-    schema: sectionSchema.extend({
-      hero: z.object({
-        title: z.string().nonempty(),
-        description: z.string().nonempty()
-      }),
-      plans: z.array(
-        z.object({
-          title: z.string().nonempty(),
-          description: z.string().nonempty(),
-          price: z.object({
-            month: z.string().nonempty(),
-            year: z.string().nonempty()
-          }),
-          billing_period: z.string().nonempty(),
-          billing_cycle: z.string().nonempty(),
-          button: linkSchema,
-          features: z.array(z.string().nonempty()),
-          highlight: z.boolean().optional()
-        })
-      ),
-      logos: z.object({
-        title: z.string().nonempty(),
-        icons: z.array(z.string())
-      }),
-      faq: sectionSchema.extend({
-        items: z.array(
-          z.object({
-            label: z.string().nonempty(),
-            content: z.string().nonempty(),
-            defaultOpen: z.boolean().optional()
-          })
-        )
-      })
-    })
-  }),
+ 
   plans: defineCollection({
     source: '**/plans.yml',
     type: 'data',

@@ -195,6 +195,32 @@
       "upgrade": "升級高級版"
     }
   },
+  "email_subscription": {
+    "title": "電郵訂閱",
+    "description": "訂閱我們的電郵，獲取最新的AI預測和市場分析",
+    "email_label": "電郵地址",
+    "email_placeholder": "請輸入您的電郵地址",
+    "type_label": "訂閱類型",
+    "type_placeholder": "選擇訂閱類型",
+    "submit_button": "立即訂閱",
+    "success_message": "訂閱成功！我們將向您發送最新的市場預測和分析。",
+    "privacy_note": "我們承諾保護您的私隱，不會向第三方分享您的電郵地址。",
+    "types": {
+      "newsletter": "新聞資訊",
+      "updates": "產品更新",
+      "marketing": "營銷推廣",
+      "trading_signals": "交易信號",
+      "price_alerts": "價格提醒"
+    },
+    "validation": {
+      "email": "請輸入有效的電郵地址",
+      "type": "請選擇訂閱類型"
+    },
+    "error": {
+      "general": "訂閱失敗，請稍後重試",
+      "duplicate": "該電郵已經訂閱過了"
+    }
+  },
   "about": {
     "title": "關於我們 - Dashpull 發展歷程",
     "description": "了解 Dashpull 從 2016 年開始探索 AI 金融預測到 2025 年實現自動交易平台的發展歷程",

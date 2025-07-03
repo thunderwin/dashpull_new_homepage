@@ -283,22 +283,22 @@ export default {
       this.error = false;
 
       try {
+        // 使用 Nuxt runtimeConfig 获取后端API配置
         const config = useRuntimeConfig();
+        const baseUrl = config.public.strapiApiUrl || 'https://api.dashpull.com';
+        const token = config.public.strapiApiToken;
 
         // 获取今天的日期
         const today = new Date().toISOString().split("T")[0];
 
         // 构建Strapi API URL和查询参数
-        const baseUrl = "https://api.dashpull.com";
         const endpoint = `${baseUrl}/api/human-predicts`;
-
         const searchParams = new URLSearchParams({
           "filters[day][$eq]": today,
           sort: "day:desc",
           "pagination[limit]": "1",
           populate: "*",
         });
-
         const fullUrl = `${endpoint}?${searchParams.toString()}`;
 
         // 直接调用Strapi API
@@ -306,7 +306,7 @@ export default {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer d500bca2021bcb781b01959a2b5c7eca35104ead14e5a1c7a113e1b77030a9d798e3d0ea3be290c20050d000ac5d7c6cc021e57eda01e40b3c545e2d8da2b6c4b75ead96fa5e3ac2cae31ae76de74415371a7928094e271535d1ef786a1f2216e745df26d4aacf85021f5b86c9f2fe92644a9fa5a1f9d63699e43340409661ff`,
+            Authorization: `Bearer ${token}`,
           },
         });
 

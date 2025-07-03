@@ -1,0 +1,108 @@
+---
+description: 做 Email Subscription 功能用到 
+globs: 
+alwaysApply: false
+---
+{
+  "kind": "collectionType",
+  "collectionName": "email_subscriptions",
+  "info": {
+    "singularName": "email-subscription",
+    "pluralName": "email-subscriptions",
+    "displayName": "Email Subscription",
+    "description": "前台用户邮件订阅管理"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "active", 
+        "inactive",
+        "unsubscribed",
+        "bounced"
+      ],
+      "default": "pending",
+      "required": true
+    },
+    "subscribe_type": {
+      "type": "enumeration", 
+      "enum": [
+        "newsletter",
+        "updates",
+        "marketing",
+        "trading-signals",
+        "price-alerts"
+      ],
+      "default": "newsletter",
+      "required": true
+    },
+    "source": {
+      "type": "string",
+      "default": "website"
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "en",
+        "zh", 
+        "zh-Hant"
+      ],
+      "default": "en",
+      "required": true
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "verification_token": {
+      "type": "string"
+    },
+    "verification_sent_at": {
+      "type": "datetime"
+    },
+    "verified_at": {
+      "type": "datetime"
+    },
+    "unsubscribed_at": {
+      "type": "datetime"
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "user_agent": {
+      "type": "text"
+    },
+    "referrer": {
+      "type": "string"
+    },
+    "preferences": {
+      "type": "json",
+      "default": {}
+    },
+    "tags": {
+      "type": "json",
+      "default": []
+    },
+    "metadata": {
+      "type": "json",
+      "default": {}
+    },
+    "last_email_sent": {
+      "type": "datetime"
+    },
+    "email_count": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+} 

@@ -195,6 +195,32 @@
       "upgrade": "Upgrade to Premium"
     }
   },
+  "email_subscription": {
+    "title": "Email Subscription",
+    "description": "Subscribe to our emails for the latest AI predictions and market analysis",
+    "email_label": "Email Address",
+    "email_placeholder": "Enter your email address",
+    "type_label": "Subscription Type",
+    "type_placeholder": "Select subscription type",
+    "submit_button": "Subscribe Now",
+    "success_message": "Successfully subscribed! We will send you the latest market predictions and analysis.",
+    "privacy_note": "We promise to protect your privacy and will not share your email address with third parties.",
+    "types": {
+      "newsletter": "Newsletter",
+      "updates": "Product Updates",
+      "marketing": "Marketing",
+      "trading_signals": "Trading Signals",
+      "price_alerts": "Price Alerts"
+    },
+    "validation": {
+      "email": "Please enter a valid email address",
+      "type": "Please select a subscription type"
+    },
+    "error": {
+      "general": "Subscription failed, please try again later",
+      "duplicate": "This email has already been subscribed"
+    }
+  },
   "about": {
     "title": "About Us - Dashpull Development History",
     "description": "Learn about Dashpull's journey from exploring AI financial prediction since 2016 to achieving automated trading platform in 2025",

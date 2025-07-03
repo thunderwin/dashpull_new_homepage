@@ -67,6 +67,9 @@ testimonials:
     - quote: "<strong>为什么在交易前发布密文？</strong> 发布密文的目的是证明我们确实依靠预测进行交易，但同时我们不需要提前暴露我们的方向。否则，其他人可能会模仿我们的策略。我们的设计是为了证明我们带给你的利润确实是通过交易获得的，而不是庞氏骗局。"
     - quote: "<strong>如何确认或确保你们的密文是真实的？</strong> 我们会在交易结束时发布原文。密文是使用SHA256算法加密的，任何人都可以通过重新加密原文来与我们发布的密文进行比较，从而确认我们提前就知道原文。"
     - quote: "<strong>你们的AI能力能持续保持吗？还是只是暂时的？</strong> 你的担忧也是我们正在考虑的。事实上，我们也不确定，但目前看来非常稳定。所以我们有理由相信它能在很长一段时间内保持稳定，至少几年。"
+email_subscription:
+  title: 订阅我们的AI预测报告
+  description: 每日获取专业的市场分析和AI预测信号，不错过任何投资机会。
 cta:
   title: 立即开始您的AI投资之旅！
   description: 加入我们的投资社区，获取专业的AI驱动股票和加密货币预测。让科技为您的投资保驾护航。
@@ -74,7 +77,7 @@ cta:
     - label: 免费试用
       to: '/signup'
       icon: i-lucide-rocket
-    - label: 查看定价
-      to: '/pricing'
+    - label: 查看方案
+      to: '/plans'
       trailingIcon: i-lucide-circle-help
       variant: subtle

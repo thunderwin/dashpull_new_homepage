@@ -35,8 +35,19 @@ useSeoMeta({
         <StarsBg />
       </template>
 
-      <PromotionalVideo />
+      <!-- <PromotionalVideo /> -->
     </UPageHero>
+
+    <!-- 邮件订阅 Section -->
+    <UPageSection
+      id="email-subscription"
+     
+    >
+      <EmailSubscription
+        :title="$t('email_subscription.title')"
+        :description="$t('email_subscription.description')"
+      />
+    </UPageSection>
 
     <UPageSection
       :title="page.features.title"
