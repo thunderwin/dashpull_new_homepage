@@ -196,7 +196,7 @@
     }
   },
   "email_subscription": {
-    "title": "邮件订阅",
+    "title": "订阅我们的预测",
     "description": "订阅我们的邮件，获取最新的AI预测和市场分析",
     "email_label": "邮箱地址",
     "email_placeholder": "请输入您的邮箱地址",

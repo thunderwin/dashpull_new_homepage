@@ -23,7 +23,6 @@
         <UForm 
           :schema="schema" 
           :state="state" 
-          @submit="handleSubmit"
           class="max-w-xl mx-auto flex flex-col items-center gap-4"
         >
           <!-- 桌面版：水平布局 -->
@@ -37,14 +36,18 @@
                 :disabled="loading"
                 :color="emailInputColor"
                 class="flex-1 large-input"
+                autocomplete="email"
+                type="email"
+                name="email"
               />
               <UButton
-                type="submit"
+                type="button"
                 :loading="loading"
                 :disabled="loading || !isValidEmail"
                 class="px-10 py-4 text-lg"
                 color="primary"
                 size="xl"
+                @click="handleSubmit"
               >
                 <template #leading>
                   <UIcon v-if="!loading" name="i-lucide-send" class="h-6 w-6" />
@@ -67,14 +70,18 @@
               :disabled="loading"
               :color="emailInputColor"
               class="w-full large-input-mobile"
+              autocomplete="email"
+              type="email"
+              name="email"
             />
             <UButton
-              type="submit"
+              type="button"
               :loading="loading"
               :disabled="loading || !isValidEmail"
-              class="w-full py-4 text-lg"
+              class="w-full py-4 text-lg mt-4 text-center"
               color="primary"
               size="xl"
+              @click="handleSubmit"
             >
               <template #leading>
                 <UIcon v-if="!loading" name="i-lucide-send" class="h-6 w-6" />
@@ -151,10 +158,10 @@ const state = reactive({
   email: ''
 })
 
-// 表单验证Schema
-const schema = z.object({
-  email: z.string().email(t('email_subscription.validation.email'))
-})
+// 表单验证Schema - 使用计算属性确保翻译可用
+const schema = computed(() => z.object({
+  email: z.string().min(1, t('email_subscription.validation.required') || '请输入邮箱地址').email(t('email_subscription.validation.email') || '请输入有效的邮箱地址')
+}))
 
 // 实时邮箱格式验证
 const isValidEmail = computed(() => {
@@ -170,39 +177,58 @@ const emailInputColor = computed(() => {
 })
 
 // 提交处理
-const handleSubmit = async (data) => {
+const handleSubmit = async (data = null) => {
   loading.value = true
   error.value = ''
   showSuccess.value = false
 
+  console.log('表单提交数据:', data)
+  console.log('当前state:', state)
+
   try {
+    // 直接使用state中的email，不依赖表单传递的data
+    const emailToSubmit = state.email?.trim()
+    
+    if (!emailToSubmit) {
+      error.value = '请输入邮箱地址'
+      loading.value = false
+      return
+    }
+
+    // 手动验证邮箱格式
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(emailToSubmit)) {
+      error.value = '请输入有效的邮箱地址'
+      loading.value = false
+      return
+    }
+
     // 获取客户端信息
     const userAgent = navigator.userAgent
     const referrer = document.referrer
     
-    // 构建API请求数据
+    // 构建API请求数据 - 简化结构避免验证错误
     const requestData = {
       data: {
-        email: data.email,
-        subscribe_type: 'newsletter',
-        source: 'website',
-        language: locale.value,
+        email: emailToSubmit,
         status: 'pending',
-        verified: false,
-        user_agent: userAgent,
-        referrer: referrer,
-        preferences: {},
-        tags: ['website_signup'],
-        metadata: {
-          signup_page: 'homepage',
-          timestamp: new Date().toISOString()
-        }
+        source: 'website',
+        language: locale.value || 'zh'
       }
     }
 
     // 调用Strapi API
     const baseUrl = config.public.strapiApiUrl || 'https://api.dashpull.com'
     const endpoint = `${baseUrl}/api/email-subscriptions`
+    
+    console.log('API请求详情:', {
+      endpoint,
+      requestData,
+      token: config.public.strapiApiToken ? '已配置' : '未配置'
+    })
+    
+    // 如果API有问题，可以暂时启用下面的模拟响应并注释真实API调用
+    // const response = { data: { id: 1, email: data.email } }
     
     const response = await $fetch(endpoint, {
       method: 'POST',
@@ -225,9 +251,41 @@ const handleSubmit = async (data) => {
     }
   } catch (err) {
     console.error('Failed to subscribe:', err)
-    if (err.data?.error?.message) {
-      error.value = err.data.error.message
-    } else if (err.message?.includes('duplicate')) {
+    console.error('Error details:', {
+      status: err.status,
+      statusCode: err.statusCode, 
+      data: err.data,
+      message: err.message
+    })
+    
+    // 处理不同类型的错误
+    if (err.status === 400 || err.statusCode === 400) {
+      // 检查是否是Strapi的验证错误
+      if (err.data?.error?.details?.errors) {
+        const validationErrors = err.data.error.details.errors
+        const uniqueError = validationErrors.find(e => 
+          e.message?.includes('unique') || 
+          e.message?.includes('must be unique') ||
+          e.path?.includes('email')
+        )
+        
+        if (uniqueError) {
+          error.value = t('email_subscription.error.duplicate')
+        } else {
+          error.value = '输入数据验证失败，请检查邮箱格式'
+        }
+      } else if (err.data?.error?.message?.includes('unique')) {
+        error.value = t('email_subscription.error.duplicate')
+      } else if (err.data?.error?.message) {
+        error.value = err.data.error.message
+      } else {
+        error.value = '请求数据格式错误，请检查邮箱格式'
+      }
+    } else if (err.status === 401 || err.statusCode === 401) {
+      error.value = 'API认证失败，请联系管理员'
+    } else if (err.status === 409 || err.statusCode === 409) {
+      error.value = t('email_subscription.error.duplicate')
+    } else if (err.message?.includes('duplicate') || err.message?.includes('unique')) {
       error.value = t('email_subscription.error.duplicate')
     } else {
       error.value = t('email_subscription.error.general')
@@ -263,14 +321,14 @@ const handleSubmit = async (data) => {
 
 /* 手机版输入框样式 */
 .large-input-mobile :deep(input) {
-  height: 56px !important;
+  height: 60px !important;
   font-size: 18px !important;
   padding: 12px 16px 12px 48px !important;
   line-height: 1.5 !important;
 }
 
 .large-input-mobile :deep(.absolute) {
-  height: 56px !important;
+  height: 60px !important;
   display: flex !important;
   align-items: center !important;
   left: 16px !important;

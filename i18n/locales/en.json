@@ -196,7 +196,7 @@
     }
   },
   "email_subscription": {
-    "title": "Email Subscription",
+    "title": "Subscribe to Our Predictions",
     "description": "Subscribe to our emails for the latest AI predictions and market analysis",
     "email_label": "Email Address",
     "email_placeholder": "Enter your email address",
