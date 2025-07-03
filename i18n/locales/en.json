@@ -5,7 +5,10 @@
     "screeners": "Screeners",
     "blog": "Blog",
     "pricing": "Pricing",
-    "about": "About"
+    "about": "About",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout"
   },
   "hero": {
     "title": "AI-Powered Stock & Crypto Prediction Platform",
@@ -93,10 +96,12 @@
     "side_long": "Long",
     "side_short": "Short",
     "current_prediction": "Current Prediction",
+    "waiting_for_prediction": "Waiting for prediction release",
     "market_score": "Market Score",
     "no_suggestion": "No Suggestion",
     "market_score_too_low": "Market score too low, no recommendation",
-    "prediction_history": "Prediction History"
+    "prediction_history": "Prediction History",
+    "countdown_label": "Time until US Stock Prediction"
   },
   "predictions": {
     "title": "Historical Predictions",

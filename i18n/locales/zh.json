@@ -5,7 +5,10 @@
     "screeners": "股票筛选",
     "blog": "博客",
     "pricing": "定价",
-    "about": "关于"
+    "about": "关于",
+    "profile": "个人资料",
+    "settings": "设置",
+    "logout": "退出登录"
   },
   "hero": {
     "title": "AI驱动的股票与加密货币预测平台",
@@ -93,10 +96,12 @@
     "side_long": "看涨",
     "side_short": "看跌", 
     "current_prediction": "当前预测",
+    "waiting_for_prediction": "等待预测发布",
     "market_score": "市场评分",
     "no_suggestion": "暂无建议",
     "market_score_too_low": "市场评分过低，暂不建议操作",
-    "prediction_history": "预测历史"
+    "prediction_history": "预测历史",
+    "countdown_label": "距离美股预测发布"
   },
   "predictions": {
     "title": "历史预测记录",
