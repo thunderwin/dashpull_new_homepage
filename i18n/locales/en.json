@@ -4,7 +4,7 @@
     "predictions": "Predictions",
     "screeners": "Screeners",
     "blog": "Blog",
-    "pricing": "Pricing",
+    "plans": "Plans",
     "about": "About",
     "profile": "Profile",
     "settings": "Settings",
@@ -188,7 +188,12 @@
     "earnings_growth": "Earnings Growth",
     "apply_filters": "Apply Filters",
     "results": "Results",
-    "no_results_yet": "Please set filter criteria to view results"
+    "no_results_yet": "Please set filter criteria to view results",
+    "premium": {
+      "title": "Premium Features",
+      "description": "Unlock more professional screening tools and real-time data",
+      "upgrade": "Upgrade to Premium"
+    }
   },
   "about": {
     "title": "About Us - Dashpull Development History",
@@ -233,6 +238,9 @@
     "copyright": "© 2024 DashPull. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "platform": "Platform",
+    "resources": "Resources",
+    "docs": "Docs"
   }
 } 

@@ -10,14 +10,24 @@ const items = computed(() => [{
 }, {
   label: t('nav.screeners'),
   to: localePath('/screeners'),
-  active: route.path.startsWith('/screeners')
-}, 
-// {
-//   label: t('nav.pricing'),
-//   to: localePath('/pricing')
-// }, 
-
-{
+  active: route.path.startsWith('/screeners'),
+  children: [{
+    label: t('screeners.growth.title'),
+    to: localePath('/screeners/growth')
+  }, {
+    label: t('screeners.momentum.title'),
+    to: localePath('/screeners/momentum')
+  }, {
+    label: t('screeners.dividend.title'),
+    to: localePath('/screeners/dividend')
+  }, {
+    label: t('screeners.value.title'),
+    to: localePath('/screeners/value')
+  }]
+}, {
+  label: t('nav.plans'),
+  to: localePath('/plans')
+}, {
   label: t('nav.about'),
   to: localePath('/blog/about-dashpull-journey')
 }, {
@@ -29,7 +39,7 @@ const items = computed(() => [{
 <template>
   <UHeader>
     <template #left>
-      <NuxtLink to="/">
+      <NuxtLink :to="localePath('/')">
         <UColorModeImage
           class="w-auto h-10 shrink-0"
           light="/logo/dashpull_logo.svg"

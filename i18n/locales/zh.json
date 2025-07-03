@@ -4,7 +4,7 @@
     "predictions": "历史预测",
     "screeners": "股票筛选",
     "blog": "博客",
-    "pricing": "定价",
+    "plans": "价格方案",
     "about": "关于",
     "profile": "个人资料",
     "settings": "设置",
@@ -188,7 +188,12 @@
     "earnings_growth": "盈利增长率",
     "apply_filters": "应用筛选",
     "results": "筛选结果",
-    "no_results_yet": "请设置筛选条件以查看结果"
+    "no_results_yet": "请设置筛选条件以查看结果",
+    "premium": {
+      "title": "高级功能",
+      "description": "解锁更多专业筛选工具和实时数据",
+      "upgrade": "升级高级版"
+    }
   },
   "about": {
     "title": "关于我们 - Dashpull 发展历程",
@@ -233,6 +238,9 @@
     "copyright": "© 2024 DashPull. 保留所有权利。",
     "privacy": "隐私政策",
     "terms": "服务条款",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "platform": "平台",
+    "resources": "资源",
+    "docs": "文档"
   }
 } 

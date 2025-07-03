@@ -1,0 +1,109 @@
+title: 价格方案
+description: 选择适合您的AI股票预测和筛选服务方案
+navigation.icon: i-lucide-credit-card
+locale: zh
+hero:
+  title: 专业的AI股票预测服务
+  description: 基于先进的人工智能技术，为您提供精准的股票预测和智能筛选服务
+plans:
+  - title: Basic 基础版
+    description: 适合个人投资者的基础预测服务
+    price:
+      month: ￥99
+      year: ￥999
+    billing_period: 每月
+    billing_cycle: 月付/年付
+    button:
+      label: 开始使用
+      color: neutral
+      variant: subtle
+    features:
+      - 访问所有AI股票预测
+      - 访问所有股票筛选器
+      - 成长股筛选
+      - 价值股筛选
+      - 红利股筛选
+      - 动量股筛选
+      - 历史预测数据查看
+      - 基础技术支持
+  - title: Advanced 高级版
+    description: 适合专业投资者的全方位智能服务
+    price:
+      month: ￥299
+      year: ￥2999
+    billing_period: 每月
+    billing_cycle: 月付/年付
+    highlight: true
+    scale: true
+    button:
+      label: 立即升级
+    features:
+      - Basic 版本所有功能
+      - 高确定性行情提醒
+      - 实时股票筛选通知
+      - 个性化投资建议
+      - 风险评估报告
+      - 市场情绪分析
+      - 专业投资策略推荐
+      - 高级数据分析工具
+      - 优先客户支持
+      - API 数据接口
+  - title: Pro 专业版
+    description: 适合机构和专业交易员的旗舰服务
+    price:
+      month: ￥999
+      year: ￥9999
+    billing_period: 每月
+    billing_cycle: 月付/年付
+    button:
+      label: 联系销售
+      color: neutral
+      variant: subtle
+    features:
+      - Advanced 版本所有功能
+      - 定制化预测模型
+      - 专属客户经理
+      - 高频交易策略
+      - 机构级数据分析
+      - 白标解决方案
+      - 24/7 专业支持
+      - 定制报告服务
+      - 多账户管理
+      - 企业级API接口
+logos:
+  title: 基于先进AI技术
+  icons:
+    - i-simple-icons-python
+    - i-simple-icons-tensorflow
+    - i-simple-icons-nvidia
+    - i-simple-icons-amazonwebservices
+    - i-simple-icons-docker
+faq:
+  title: 常见问题
+  description: 关于我们的AI股票预测和筛选服务的常见问题解答
+  items:
+    - label: 你们的AI预测准确率如何？
+      content: 我们的AI模型基于深度学习和机器学习技术，结合多年的历史数据和实时市场信息进行训练。虽然股市预测存在不确定性，但我们的模型在历史回测中表现优秀，帮助用户做出更明智的投资决策。
+      defaultOpen: true
+    - label: Basic版本包含哪些功能？
+      content: Basic版本提供访问所有AI股票预测、完整的股票筛选器（成长股、价值股、红利股、动量股）、历史预测数据查看和基础技术支持。适合个人投资者开始使用我们的服务。
+    - label: Advanced版本的"高确定性行情提醒"是什么？
+      content: 当我们的AI模型检测到高确定性的市场机会时，会实时向Advanced用户发送提醒。这些提醒基于多个指标的综合分析，包括技术分析、基本面分析和市场情绪，帮助您抓住最佳交易时机。
+    - label: 股票筛选通知如何工作？
+      content: Advanced版本用户可以设置个性化的筛选条件，当有符合条件的股票出现时，系统会自动发送通知。您可以根据市值、增长率、股息率等多个维度设置筛选标准。
+    - label: 可以取消订阅吗？
+      content: 是的，您可以随时取消订阅。月付用户可以在当月结束前取消，年付用户可以在年度周期结束前取消。我们不收取任何取消费用。
+    - label: 数据更新频率如何？
+      content: 我们的股票数据实时更新，AI预测每日更新，确保您获得最新的市场信息和分析结果。高级版用户还可以获得盘中实时提醒。
+    - label: 支持哪些市场？
+      content: 目前我们主要支持美国股市（NYSE、NASDAQ）和比特币市场。我们正在扩展到更多全球市场，包括港股、A股等。
+    - label: 如何确保数据安全？
+      content: 我们采用企业级安全措施，包括SSL加密传输、数据备份、访问控制等。您的个人信息和投资数据都受到严格保护，绝不会被第三方获取。
+    - label: API接口如何使用？
+      content: Advanced和Pro版本用户可以获得API访问权限，用于获取预测数据、筛选结果等。我们提供详细的API文档和技术支持，帮助您集成到自己的交易系统中。
+    - label: 提供投资建议吗？
+      content: 我们提供基于AI分析的数据和见解，但这些不构成投资建议。所有投资决策应该基于您自己的研究和风险承受能力。我们建议在做出投资决定前咨询专业的财务顾问。
+    - label: 客户支持服务如何？
+      content: Basic版本提供邮件支持，Advanced版本提供优先支持和在线聊天，Pro版本提供24/7专属客户经理服务。我们致力于为每位用户提供及时、专业的技术支持。
+    - label: 可以试用吗？
+      content: 是的，我们为新用户提供7天免费试用，让您体验我们的Basic版本功能。无需信用卡，注册即可开始试用。 

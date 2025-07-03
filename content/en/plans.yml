@@ -1,0 +1,109 @@
+title: Pricing Plans
+description: Choose the AI stock prediction and screening service plan that's right for you
+locale: en
+navigation.icon: i-lucide-credit-card
+hero:
+  title: Professional AI Stock Prediction Service
+  description: Based on advanced artificial intelligence technology, providing you with accurate stock predictions and intelligent screening services
+plans:
+  - title: Basic Plan
+    description: Perfect for individual investors starting with basic prediction services
+    price:
+      month: $15
+      year: $150
+    billing_period: Monthly
+    billing_cycle: Monthly/Yearly
+    button:
+      label: Get Started
+      color: neutral
+      variant: subtle
+    features:
+      - Access to all AI stock predictions
+      - Access to all stock screeners
+      - Growth stock screening
+      - Value stock screening
+      - Dividend stock screening
+      - Momentum stock screening
+      - Historical prediction data
+      - Basic technical support
+  - title: Advanced Plan
+    description: Comprehensive intelligent service for professional investors
+    price:
+      month: $45
+      year: $450
+    billing_period: Monthly
+    billing_cycle: Monthly/Yearly
+    highlight: true
+    scale: true
+    button:
+      label: Upgrade Now
+    features:
+      - All Basic plan features
+      - High-confidence market alerts
+      - Real-time stock screening notifications
+      - Personalized investment recommendations
+      - Risk assessment reports
+      - Market sentiment analysis
+      - Professional investment strategy recommendations
+      - Advanced data analysis tools
+      - Priority customer support
+      - API data interface
+  - title: Pro Plan
+    description: Flagship service for institutions and professional traders
+    price:
+      month: $150
+      year: $1500
+    billing_period: Monthly
+    billing_cycle: Monthly/Yearly
+    button:
+      label: Contact Sales
+      color: neutral
+      variant: subtle
+    features:
+      - All Advanced plan features
+      - Custom prediction models
+      - Dedicated account manager
+      - High-frequency trading strategies
+      - Institutional-grade data analysis
+      - White-label solutions
+      - 24/7 professional support
+      - Custom reporting services
+      - Multi-account management
+      - Enterprise API access
+logos:
+  title: Powered by Advanced AI Technology
+  icons:
+    - i-simple-icons-python
+    - i-simple-icons-tensorflow
+    - i-simple-icons-nvidia
+    - i-simple-icons-amazonwebservices
+    - i-simple-icons-docker
+faq:
+  title: Frequently Asked Questions
+  description: Common questions about our AI stock prediction and screening services
+  items:
+    - label: How accurate are your AI predictions?
+      content: Our AI models are based on deep learning and machine learning technologies, trained with years of historical data and real-time market information. While stock market predictions involve uncertainty, our models have shown excellent performance in historical backtesting, helping users make more informed investment decisions.
+      defaultOpen: true
+    - label: What features are included in the Basic plan?
+      content: The Basic plan provides access to all AI stock predictions, complete stock screeners (growth, value, dividend, momentum stocks), historical prediction data viewing, and basic technical support. Perfect for individual investors to start using our services.
+    - label: What are "high-confidence market alerts" in the Advanced plan?
+      content: When our AI models detect high-confidence market opportunities, real-time alerts are sent to Advanced users. These alerts are based on comprehensive analysis of multiple indicators including technical analysis, fundamental analysis, and market sentiment to help you seize optimal trading opportunities.
+    - label: How do stock screening notifications work?
+      content: Advanced plan users can set personalized screening criteria, and the system will automatically send notifications when stocks meeting those criteria appear. You can set screening standards based on market cap, growth rate, dividend yield, and multiple other dimensions.
+    - label: Can I cancel my subscription?
+      content: Yes, you can cancel your subscription at any time. Monthly users can cancel before the current month ends, and yearly users can cancel before the annual cycle ends. We don't charge any cancellation fees.
+    - label: How frequently is data updated?
+      content: Our stock data is updated in real-time, AI predictions are updated daily, ensuring you get the latest market information and analysis results. Advanced users also receive intraday real-time alerts.
+    - label: Which markets do you support?
+      content: Currently we primarily support US stock markets (NYSE, NASDAQ) and Bitcoin markets. We are expanding to more global markets including Hong Kong stocks, A-shares, etc.
+    - label: How do you ensure data security?
+      content: We employ enterprise-grade security measures including SSL encrypted transmission, data backup, access control, etc. Your personal information and investment data are strictly protected and will never be accessed by third parties.
+    - label: How can I use the API interface?
+      content: Advanced and Pro plan users can obtain API access for prediction data, screening results, etc. We provide detailed API documentation and technical support to help you integrate into your own trading systems.
+    - label: Do you provide investment advice?
+      content: We provide data and insights based on AI analysis, but these do not constitute investment advice. All investment decisions should be based on your own research and risk tolerance. We recommend consulting professional financial advisors before making investment decisions.
+    - label: What customer support services do you offer?
+      content: Basic plan provides email support, Advanced plan provides priority support and live chat, Pro plan provides 24/7 dedicated account manager service. We are committed to providing timely and professional technical support to every user.
+    - label: Is there a trial available?
+      content: Yes, we offer a 7-day free trial for new users to experience our Basic plan features. No credit card required, just register to start your trial. 

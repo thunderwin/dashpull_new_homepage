@@ -152,6 +152,50 @@ export const collections = {
       })
     })
   }),
+  plans: defineCollection({
+    source: '**/plans.yml',
+    type: 'data',
+    schema: z.object({
+      title: z.string().nonempty(),
+      description: z.string().nonempty(),
+      locale: z.string().optional(),
+      hero: z.object({
+        title: z.string().nonempty(),
+        description: z.string().nonempty()
+      }),
+      plans: z.array(
+        z.object({
+          title: z.string().nonempty(),
+          description: z.string().nonempty(),
+          price: z.object({
+            month: z.string().nonempty(),
+            year: z.string().nonempty()
+          }),
+          billing_period: z.string().nonempty(),
+          billing_cycle: z.string().nonempty(),
+          button: linkSchema,
+          features: z.array(z.string().nonempty()),
+          highlight: z.boolean().optional(),
+          scale: z.boolean().optional()
+        })
+      ),
+      logos: z.object({
+        title: z.string().nonempty(),
+        icons: z.array(z.string())
+      }),
+      faq: z.object({
+        title: z.string().nonempty(),
+        description: z.string().nonempty(),
+        items: z.array(
+          z.object({
+            label: z.string().nonempty(),
+            content: z.string().nonempty(),
+            defaultOpen: z.boolean().optional()
+          })
+        )
+      })
+    })
+  }),
   blog: defineCollection({
     source: '**/blog.yml',
     type: 'data',

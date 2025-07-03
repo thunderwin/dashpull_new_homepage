@@ -1,1 +1,0 @@
-import{as as d}from"./DmBscp-k.js";function r(e,i,o){const t=e.findIndex(n=>d(n,i)),s=e.findIndex(n=>d(n,o));if(t===-1||s===-1)return[];const[x,f]=[t,s].sort((n,I)=>n-I);return e.slice(x,f+1)}export{r as f};

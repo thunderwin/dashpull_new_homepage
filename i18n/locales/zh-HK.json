@@ -4,7 +4,7 @@
     "predictions": "歷史預測",
     "screeners": "股票篩選",
     "blog": "網誌",
-    "pricing": "定價",
+    "plans": "價格方案",
     "about": "關於",
     "profile": "個人資料",
     "settings": "設定",
@@ -188,7 +188,12 @@
     "earnings_growth": "盈利增長率",
     "apply_filters": "應用篩選",
     "results": "篩選結果",
-    "no_results_yet": "請設置篩選條件以查看結果"
+    "no_results_yet": "請設置篩選條件以查看結果",
+    "premium": {
+      "title": "高級功能",
+      "description": "解鎖更多專業篩選工具和實時資料",
+      "upgrade": "升級高級版"
+    }
   },
   "about": {
     "title": "關於我們 - Dashpull 發展歷程",
@@ -233,6 +238,9 @@
     "copyright": "© 2024 DashPull. 版權所有。",
     "privacy": "私隱政策",
     "terms": "服務條款",
-    "contact": "聯絡我們"
+    "contact": "聯絡我們",
+    "platform": "平台",
+    "resources": "資源",
+    "docs": "文檔"
   }
 } 

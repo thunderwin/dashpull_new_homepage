@@ -1,7 +1,7 @@
 <template>
   <UCard class="prediction-banner bg-gradient-to-r from-slate-50 to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200/30 dark:border-blue-800/30">
     <!-- 加载状态 -->
-    <div v-if="loading" class="flex items-center justify-center py-2 px-3">
+    <div v-if="loading" class="flex items-center justify-center">
       <div class="flex items-center space-x-3">
         <UIcon
           name="i-heroicons-arrow-path"
@@ -14,7 +14,7 @@
     </div>
 
     <!-- 错误状态 -->
-    <div v-else-if="error" class="flex items-center justify-between py-2 px-3">
+    <div v-else-if="error" class="flex items-center justify-between">
       <div class="flex items-center space-x-3">
         <UIcon
           name="i-heroicons-exclamation-triangle"
@@ -38,7 +38,7 @@
     </div>
 
     <!-- 预测还未发布 (北京时间8点前) -->
-    <div v-else-if="!isPredictionTime" class="flex items-center justify-center py-2 px-3">
+    <div v-else-if="!isPredictionTime" class="flex items-center justify-center">
       <!-- 居中的内容区域，内部左右排列 -->
       <div class="flex items-center justify-between w-full max-w-5xl">
         <!-- 左侧：主要内容 -->
@@ -71,7 +71,7 @@
     </div>
 
     <!-- 显示预测结果 - 优化布局 -->
-    <div v-else-if="prediction && shouldShowPrediction" class="flex items-center justify-center py-2 px-3">
+    <div v-else-if="prediction && shouldShowPrediction" class="flex items-center justify-center">
       <!-- 居中的内容区域，内部左右排列 -->
       <div class="flex items-center justify-between w-full max-w-6xl">
         <!-- 左侧：预测状态 -->
@@ -159,7 +159,7 @@
     </div>
 
     <!-- 没有建议状态 - 优化布局 -->
-    <div v-else-if="prediction && !shouldShowPrediction" class="flex items-center justify-center py-2 px-3">
+    <div v-else-if="prediction && !shouldShowPrediction" class="flex items-center justify-center">
       <!-- 居中的内容区域，内部左右排列 -->
       <div class="flex items-center justify-between w-full max-w-5xl">
         <!-- 左侧：主要内容 -->
@@ -196,7 +196,7 @@
     </div>
 
     <!-- 无数据状态 - 横向布局 -->
-    <div v-else class="flex items-center justify-center py-2 px-3">
+    <div v-else class="flex items-center justify-center">
       <div class="flex items-center space-x-3">
         <div class="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center">
           <UIcon name="i-heroicons-document-magnifying-glass" class="h-5 w-5 text-gray-400" />

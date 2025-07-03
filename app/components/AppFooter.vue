@@ -1,38 +1,44 @@
-<script setup lang="ts">
-const columns = [{
-  label: 'Resources',
+<script setup>
+const { t } = useI18n()
+const localePath = useLocalePath()
+
+const columns = computed(() => [{
+  label: t('nav.screeners'),
   children: [{
-    label: 'Help center'
+    label: t('screeners.growth.title'),
+    to: localePath('/screeners/growth')
   }, {
-    label: 'Docs'
+    label: t('screeners.momentum.title'),
+    to: localePath('/screeners/momentum')
   }, {
-    label: 'Roadmap'
+    label: t('screeners.dividend.title'),
+    to: localePath('/screeners/dividend')
   }, {
-    label: 'Changelog'
+    label: t('screeners.value.title'),
+    to: localePath('/screeners/value')
   }]
 }, {
-  label: 'Features',
+  label: t('footer.platform'),
   children: [{
-    label: 'Affiliates'
+    label: t('nav.predictions'),
+    to: localePath('/predictions')
   }, {
-    label: 'Portal'
+    label: t('screeners.title'),
+    to: localePath('/screeners')
   }, {
-    label: 'Jobs'
-  }, {
-    label: 'Sponsors'
+    label: t('nav.plans'),
+    to: localePath('/plans')
   }]
 }, {
-  label: 'Company',
+  label: t('footer.resources'),
   children: [{
-    label: 'About'
+    label: t('nav.blog'),
+    to: localePath('/blog')
   }, {
-    label: 'Pricing'
-  }, {
-    label: 'Careers'
-  }, {
-    label: 'Blog'
+    label: t('footer.docs'),
+    to: localePath('/docs')
   }]
-}]
+}])
 
 const toast = useToast()
 
@@ -97,10 +103,10 @@ function onSubmit() {
       <UColorModeButton />
 
       <UButton
-        to="https://github.com/nuxt-ui-pro/saas"
+        to="https://x.com/dashpull"
         target="_blank"
-        icon="i-simple-icons-github"
-        aria-label="GitHub"
+        icon="i-simple-icons-x"
+        aria-label="X"
         color="neutral"
         variant="ghost"
       />
