@@ -1,12 +1,16 @@
-<script setup lang="ts">
+<script setup>
 const route = useRoute()
 const { t } = useI18n()
 const localePath = useLocalePath()
 
 const items = computed(() => [{
-  label: t('nav.docs'),
-  to: localePath('/docs'),
-  active: route.path.startsWith('/docs')
+  label: t('nav.predictions'),
+  to: localePath('/predictions'),
+  active: route.path.startsWith('/predictions')
+}, {
+  label: t('nav.screeners'),
+  to: localePath('/screeners'),
+  active: route.path.startsWith('/screeners')
 }, {
   label: t('nav.pricing'),
   to: localePath('/pricing')
@@ -23,9 +27,13 @@ const items = computed(() => [{
   <UHeader>
     <template #left>
       <NuxtLink to="/">
-        <LogoPro class="w-auto h-6 shrink-0" />
+        <UColorModeImage
+          class="w-auto h-10 shrink-0"
+          light="/logo/dashpull_logo.svg"
+          dark="/logo/dashpull_logo_light.svg"
+          alt="DashPull Logo"
+        />
       </NuxtLink>
-      <TemplateMenu />
     </template>
 
     <UNavigationMenu

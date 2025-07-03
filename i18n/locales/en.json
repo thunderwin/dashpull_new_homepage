@@ -1,7 +1,8 @@
 {
   "nav": {
     "home": "Home",
-    "docs": "Documentation",
+    "predictions": "Predictions",
+    "screeners": "Screeners",
     "blog": "Blog",
     "pricing": "Pricing",
     "about": "About"
@@ -46,7 +47,8 @@
     "refresh": "Refresh",
     "language": "Language",
     "no_data": "No data available",
-    "last_updated": "Last updated"
+    "last_updated": "Last updated",
+    "back": "Back"
   },
   "auth": {
     "login": "Login",
@@ -96,6 +98,28 @@
     "market_score_too_low": "Market score too low, no recommendation",
     "prediction_history": "Prediction History"
   },
+  "predictions": {
+    "title": "Historical Predictions",
+    "total_records": "Total Records",
+    "trading_count": "Trading Count",
+    "event_predictions": "Event Predictions",
+    "long_predictions": "Long Predictions",
+    "short_predictions": "Short Predictions",
+    "win_rate": "Win Rate",
+    "average_profit_rate": "Average Profit Rate",
+    "long_short_score": "Long/Short Score",
+    "profit_rate": "Profit Rate",
+    "result": "Result",
+    "date": "Date",
+    "prediction": "Prediction",
+    "no_direction": "No Direction",
+    "win": "Win",
+    "loss": "Loss", 
+    "stop_loss": "Stop Loss",
+    "pending": "Pending",
+    "break": "Break",
+    "event": "Event"
+  },
   "market_overview": {
     "loading": "Loading market data...",
     "error": "Failed to load market data",
@@ -116,6 +140,50 @@
       "fear": "Fear",
       "extreme_fear": "Extreme Fear"
     }
+  },
+  "screeners": {
+    "title": "Stock Screeners",
+    "subtitle": "Discover best investment opportunities with AI-powered screeners",
+    "description": "Smart stock screening tools to help you find the most suitable investment targets",
+    "launch": "Launch Screener",
+    "growth": {
+      "title": "Growth Screener",
+      "description": "Find stocks with high growth potential"
+    },
+    "value": {
+      "title": "Value Screener",
+      "description": "Discover undervalued investment opportunities"
+    },
+    "dividend": {
+      "title": "Dividend Screener",
+      "description": "Screen for high dividend stable income stocks"
+    },
+    "momentum": {
+      "title": "Momentum Screener",
+      "description": "Identify stocks with strong price momentum"
+    },
+    "features": {
+      "title": "Screener Features",
+      "search": {
+        "title": "Smart Search",
+        "description": "Multi-dimensional search and filtering conditions"
+      },
+      "filter": {
+        "title": "Advanced Filters",
+        "description": "Precise filtering based on financial metrics"
+      },
+      "ai": {
+        "title": "AI Analysis",
+        "description": "Artificial intelligence-driven investment recommendations"
+      }
+    },
+    "filter_criteria": "Filter Criteria",
+    "market_cap": "Market Cap",
+    "revenue_growth": "Revenue Growth",
+    "earnings_growth": "Earnings Growth",
+    "apply_filters": "Apply Filters",
+    "results": "Results",
+    "no_results_yet": "Please set filter criteria to view results"
   },
   "footer": {
     "copyright": "© 2024 DashPull. All rights reserved.",

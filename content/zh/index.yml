@@ -9,9 +9,9 @@ hero:
     - label: 开始使用
       icon: i-lucide-arrow-right
       trailing: true
-      to: /dashboard
+      to: /signup
       size: xl
-    - label: 查看预测
+    - label: 查看历史预测
       icon: i-lucide-trending-up
       size: xl
       color: neutral

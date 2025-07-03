@@ -1,7 +1,8 @@
 {
   "nav": {
     "home": "首頁",
-    "docs": "文檔",
+    "predictions": "歷史預測",
+    "screeners": "股票篩選",
     "blog": "網誌",
     "pricing": "定價",
     "about": "關於"
@@ -46,7 +47,8 @@
     "refresh": "重新整理",
     "language": "語言",
     "no_data": "暫無資料",
-    "last_updated": "最後更新"
+    "last_updated": "最後更新",
+    "back": "返回"
   },
   "auth": {
     "login": "登入",
@@ -96,6 +98,28 @@
     "market_score_too_low": "市場評分過低，暫不建議操作",
     "prediction_history": "預測歷史"
   },
+  "predictions": {
+    "title": "歷史預測記錄",
+    "total_records": "總記錄數",
+    "trading_count": "交易次數",
+    "event_predictions": "事件預測",
+    "long_predictions": "多頭預測",
+    "short_predictions": "空頭預測",
+    "win_rate": "勝率",
+    "average_profit_rate": "平均盈利率",
+    "long_short_score": "多空分數",
+    "profit_rate": "盈利率",
+    "result": "結果",
+    "date": "日期",
+    "prediction": "預測",
+    "no_direction": "無方向",
+    "win": "勝",
+    "loss": "負", 
+    "stop_loss": "止損",
+    "pending": "待定",
+    "break": "休息",
+    "event": "事件"
+  },
   "market_overview": {
     "loading": "正在載入市場資料...",
     "error": "載入市場資料失敗",
@@ -116,6 +140,50 @@
       "fear": "恐懼",
       "extreme_fear": "極度恐懼"
     }
+  },
+  "screeners": {
+    "title": "股票篩選器",
+    "subtitle": "使用AI驅動的篩選器發現最佳投資機會",
+    "description": "智能股票篩選工具，幫助您找到最適合的投資標的",
+    "launch": "啟動篩選",
+    "growth": {
+      "title": "成長股篩選",
+      "description": "尋找具有高成長潛力的股票"
+    },
+    "value": {
+      "title": "價值股篩選",
+      "description": "發現被低估的價值投資機會"
+    },
+    "dividend": {
+      "title": "股息股篩選",
+      "description": "篩選高股息穩定收益的股票"
+    },
+    "momentum": {
+      "title": "動量股篩選",
+      "description": "識別具有強勁價格動量的股票"
+    },
+    "features": {
+      "title": "篩選器功能",
+      "search": {
+        "title": "智能搜尋",
+        "description": "多維度搜尋和過濾條件"
+      },
+      "filter": {
+        "title": "進階篩選",
+        "description": "基於財務指標的精確篩選"
+      },
+      "ai": {
+        "title": "AI分析",
+        "description": "人工智能驅動的投資建議"
+      }
+    },
+    "filter_criteria": "篩選條件",
+    "market_cap": "市值",
+    "revenue_growth": "營收增長率",
+    "earnings_growth": "盈利增長率",
+    "apply_filters": "應用篩選",
+    "results": "篩選結果",
+    "no_results_yet": "請設置篩選條件以查看結果"
   },
   "footer": {
     "copyright": "© 2024 DashPull. 版權所有。",

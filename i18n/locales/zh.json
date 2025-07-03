@@ -1,7 +1,8 @@
 {
   "nav": {
     "home": "首页",
-    "docs": "文档",
+    "predictions": "历史预测",
+    "screeners": "股票筛选",
     "blog": "博客",
     "pricing": "定价",
     "about": "关于"
@@ -46,7 +47,8 @@
     "refresh": "刷新",
     "language": "语言",
     "no_data": "暂无数据",
-    "last_updated": "最后更新"
+    "last_updated": "最后更新",
+    "back": "返回"
   },
   "auth": {
     "login": "登录",
@@ -96,6 +98,28 @@
     "market_score_too_low": "市场评分过低，暂不建议操作",
     "prediction_history": "预测历史"
   },
+  "predictions": {
+    "title": "历史预测记录",
+    "total_records": "总记录数",
+    "trading_count": "交易次数",
+    "event_predictions": "事件预测",
+    "long_predictions": "多头预测",
+    "short_predictions": "空头预测",
+    "win_rate": "胜率",
+    "average_profit_rate": "平均盈利率",
+    "long_short_score": "多空分数",
+    "profit_rate": "盈利率",
+    "result": "结果",
+    "date": "日期",
+    "prediction": "预测",
+    "no_direction": "无方向",
+    "win": "胜",
+    "loss": "负", 
+    "stop_loss": "止损",
+    "pending": "待定",
+    "break": "休息",
+    "event": "事件"
+  },
   "market_overview": {
     "loading": "正在加载市场数据...",
     "error": "加载市场数据失败",
@@ -116,6 +140,50 @@
       "fear": "恐惧",
       "extreme_fear": "极度恐惧"
     }
+  },
+  "screeners": {
+    "title": "股票筛选器",
+    "subtitle": "使用AI驱动的筛选器发现最佳投资机会",
+    "description": "智能股票筛选工具，帮助您找到最适合的投资标的",
+    "launch": "启动筛选",
+    "growth": {
+      "title": "成长股筛选",
+      "description": "寻找具有高成长潜力的股票"
+    },
+    "value": {
+      "title": "价值股筛选",
+      "description": "发现被低估的价值投资机会"
+    },
+    "dividend": {
+      "title": "红利股筛选",
+      "description": "筛选高分红稳定收益的股票"
+    },
+    "momentum": {
+      "title": "动量股筛选",
+      "description": "识别具有强劲价格动量的股票"
+    },
+    "features": {
+      "title": "筛选器功能",
+      "search": {
+        "title": "智能搜索",
+        "description": "多维度搜索和过滤条件"
+      },
+      "filter": {
+        "title": "高级筛选",
+        "description": "基于财务指标的精确筛选"
+      },
+      "ai": {
+        "title": "AI分析",
+        "description": "人工智能驱动的投资建议"
+      }
+    },
+    "filter_criteria": "筛选条件",
+    "market_cap": "市值",
+    "revenue_growth": "营收增长率",
+    "earnings_growth": "盈利增长率",
+    "apply_filters": "应用筛选",
+    "results": "筛选结果",
+    "no_results_yet": "请设置筛选条件以查看结果"
   },
   "footer": {
     "copyright": "© 2024 DashPull. 保留所有权利。",

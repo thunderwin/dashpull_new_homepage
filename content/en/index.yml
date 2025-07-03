@@ -9,9 +9,9 @@ hero:
     - label: Get Started
       icon: i-lucide-arrow-right
       trailing: true
-      to: /dashboard
+      to: /signup
       size: xl
-    - label: View Predictions
+    - label: View Historical Predictions
       icon: i-lucide-trending-up
       size: xl
       color: neutral
