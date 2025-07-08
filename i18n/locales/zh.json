@@ -213,6 +213,7 @@
       "price_alerts": "价格提醒"
     },
     "validation": {
+      "required": "请输入邮箱地址",
       "email": "请输入有效的邮箱地址",
       "type": "请选择订阅类型"
     },

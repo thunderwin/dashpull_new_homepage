@@ -129,14 +129,14 @@
               {{ $t("prediction_component.market_score") }}
             </span>
             <span class="text-2xl font-black text-blue-900 dark:text-blue-100">{{ predictionData.market_score }}</span>
-            <UBadge 
+            <!-- <UBadge 
               :color="Math.abs(predictionData.market_score) >= 0.2 ? 'green' : 'amber'" 
               variant="soft"
               size="sm"
               class="font-bold text-sm px-2 py-1"
             >
               {{ Math.abs(predictionData.market_score) >= 0.2 ? '强势' : '温和' }}
-            </UBadge>
+            </UBadge> -->
           </div>
         </div>
 
@@ -291,27 +291,28 @@ export default {
         // 获取今天的日期
         const today = new Date().toISOString().split("T")[0];
 
-        // 构建Strapi API URL和查询参数
-        const endpoint = `${baseUrl}/api/human-predicts`;
-        const searchParams = new URLSearchParams({
-          "filters[day][$eq]": today,
-          sort: "day:desc",
-          "pagination[limit]": "1",
-          populate: "*",
-        });
-        const fullUrl = `${endpoint}?${searchParams.toString()}`;
+        // 使用新的统计接口
+        const endpoint = `${baseUrl}/api/human-predicts-statistics`;
+        
+        const headers = {
+          'Content-Type': 'application/json'
+        };
+        
+        // 如果有token，添加到headers中
+        if (token) {
+          headers['Authorization'] = `Bearer ${token}`;
+        }
 
-        // 直接调用Strapi API
-        const response = await $fetch(fullUrl, {
+        // 直接调用新的统计接口
+        const response = await $fetch(endpoint, {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
+          headers
         });
 
-        if (response && response.data && response.data.length > 0) {
-          this.prediction = response.data[0].attributes;
+        if (response && response.predictions && response.predictions.length > 0) {
+          // 从预测数据中找到今天的数据
+          const todayPrediction = response.predictions.find(p => p.day === today);
+          this.prediction = todayPrediction || null;
         } else {
           this.prediction = null;
         }

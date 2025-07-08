@@ -213,6 +213,7 @@
       "price_alerts": "Price Alerts"
     },
     "validation": {
+      "required": "Please enter an email address",
       "email": "Please enter a valid email address",
       "type": "Please select a subscription type"
     },

@@ -18,3 +18,5 @@ const localePath = useLocalePath()
 项目是使用ai 预测btc 或者 美股每天的走势, 
 这个项目是做 stock screener 的 多语言网站
 
+nuxt 的环境变量 strapiApiUrl 是后端 api 地址 ，strapiApiToken 是 token
+

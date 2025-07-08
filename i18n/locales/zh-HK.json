@@ -213,6 +213,7 @@
       "price_alerts": "價格提醒"
     },
     "validation": {
+      "required": "請輸入電郵地址",
       "email": "請輸入有效的電郵地址",
       "type": "請選擇訂閱類型"
     },

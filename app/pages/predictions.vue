@@ -11,32 +11,32 @@
         <!-- 统计信息 -->
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-8">
           <div class="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm">
-            <div class="text-2xl font-bold text-gray-900 dark:text-white">{{ predictions.length }}</div>
+            <div class="text-2xl font-bold text-gray-900 dark:text-white">{{ statistics.totalRecords || 0 }}</div>
             <div class="text-sm text-gray-600 dark:text-gray-300">{{ $t('predictions.total_records') }}</div>
           </div>
           <div class="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm">
-            <div class="text-2xl font-bold text-blue-600">{{ tradedCount }}</div>
+            <div class="text-2xl font-bold text-blue-600">{{ statistics.tradedCount || 0 }}</div>
             <div class="text-sm text-gray-600 dark:text-gray-300">{{ $t('predictions.trading_count') }}</div>
           </div>
           <div class="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm">
-            <div class="text-2xl font-bold text-orange-600">{{ eventCount }}</div>
+            <div class="text-2xl font-bold text-orange-600">{{ statistics.eventCount || 0 }}</div>
             <div class="text-sm text-gray-600 dark:text-gray-300">{{ $t('predictions.event_predictions') }}</div>
           </div>
           <div class="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm">
-            <div class="text-2xl font-bold text-green-600">{{ longCount }}</div>
+            <div class="text-2xl font-bold text-green-600">{{ statistics.longCount || 0 }}</div>
             <div class="text-sm text-gray-600 dark:text-gray-300">{{ $t('predictions.long_predictions') }}</div>
           </div>
           <div class="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm">
-            <div class="text-2xl font-bold text-red-600">{{ shortCount }}</div>
+            <div class="text-2xl font-bold text-red-600">{{ statistics.shortCount || 0 }}</div>
             <div class="text-sm text-gray-600 dark:text-gray-300">{{ $t('predictions.short_predictions') }}</div>
           </div>
           <div class="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm">
-            <div class="text-2xl font-bold text-blue-600">{{ winRate }}%</div>
+            <div class="text-2xl font-bold text-blue-600">{{ statistics.winRate || 0 }}%</div>
             <div class="text-sm text-gray-600 dark:text-gray-300">{{ $t('predictions.win_rate') }}</div>
           </div>
           <div class="bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm">
-            <div class="text-2xl font-bold" :class="averageProfitRate >= 0 ? 'text-green-600' : 'text-red-600'">
-              {{ averageProfitRate !== null ? (averageProfitRate >= 0 ? '+' : '') + averageProfitRate.toFixed(2) + '%' : '-' }}
+            <div class="text-2xl font-bold" :class="(statistics.averageProfitRate || 0) >= 0 ? 'text-green-600' : 'text-red-600'">
+              {{ statistics.averageProfitRate !== null ? ((statistics.averageProfitRate || 0) >= 0 ? '+' : '') + (statistics.averageProfitRate || 0).toFixed(2) + '%' : '-' }}
             </div>
             <div class="text-sm text-gray-600 dark:text-gray-300">{{ $t('predictions.average_profit_rate') }}</div>
           </div>
@@ -94,8 +94,11 @@
                     <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400 text-xs">
                       {{ $t('predictions.no_direction') }}
                     </span>
-                    <span v-else-if="prediction.event && prediction.event !== '没有'" class="text-orange-500 text-xs">
-                      {{ prediction.event }}
+                    <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-orange-500 text-xs">
+                      {{ prediction.events }}
+                    </span>
+                    <span v-else-if="!prediction.side" class="text-gray-400 text-xs">
+                      {{ $t('predictions.hidden') }}
                     </span>
                     <span 
                       v-else
@@ -120,7 +123,7 @@
                     <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400">
                       -
                     </span>
-                    <span v-else-if="prediction.event && prediction.event !== '没有'" class="text-gray-400">
+                    <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-gray-400">
                       -
                     </span>
                     <span v-else-if="prediction.profit_rate !== null && prediction.profit_rate !== undefined" 
@@ -137,7 +140,7 @@
                     <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400 text-xs">
                       {{ $t('predictions.break') }}
                     </span>
-                    <span v-else-if="prediction.event && prediction.event !== '没有'" class="text-orange-500 text-xs">
+                    <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-orange-500 text-xs">
                       {{ $t('predictions.event') }}
                     </span>
                     <span 
@@ -179,54 +182,21 @@
   </template>
   
   <script setup>
-  import { ref, computed, onMounted } from 'vue'
+  import { ref, onMounted } from 'vue'
   
   // 响应式数据
   const predictions = ref([])
+  const statistics = ref({
+    totalRecords: 0,
+    tradedCount: 0,
+    eventCount: 0,
+    longCount: 0,
+    shortCount: 0,
+    winRate: 0,
+    averageProfitRate: null
+  })
   const loading = ref(true)
   const error = ref(false)
-  
-  // 计算属性
-  // 过滤有效的预测：市场评分达标且没有事件
-  const validPredictions = computed(() => {
-    return predictions.value.filter(p => 
-      Math.abs(p.market_score || 0) >= 0.15 && 
-      (!p.event || p.event === '没有')
-    )
-  })
-  
-  const eventCount = computed(() => {
-    return predictions.value.filter(p => 
-      Math.abs(p.market_score || 0) >= 0.15 && 
-      (p.event && p.event !== '没有')
-    ).length
-  })
-  
-  const tradedCount = computed(() => {
-    return validPredictions.value.length
-  })
-  
-  const longCount = computed(() => {
-    return validPredictions.value.filter(p => p.side === 'long').length
-  })
-  
-  const shortCount = computed(() => {
-    return validPredictions.value.filter(p => p.side === 'short').length
-  })
-  
-  const winRate = computed(() => {
-    const completedPredictions = validPredictions.value.filter(p => p.result && p.result !== null)
-    if (completedPredictions.length === 0) return 0
-    const wins = completedPredictions.filter(p => p.result === 'yes').length
-    return Math.round((wins / completedPredictions.length) * 100)
-  })
-  
-  const averageProfitRate = computed(() => {
-    const completedPredictions = validPredictions.value.filter(p => p.result && p.result !== null && p.profit_rate !== null && p.profit_rate !== undefined)
-    if (completedPredictions.length === 0) return null
-    const totalProfit = completedPredictions.reduce((total, prediction) => total + parseFloat(prediction.profit_rate || 0), 0)
-    return totalProfit / completedPredictions.length
-  })
   
   // 方法
   const fetchPredictions = async () => {
@@ -236,55 +206,40 @@
     try {
       const config = useRuntimeConfig()
       
-      // 构建Strapi API URL和查询参数
-      const baseUrl = "https://api.dashpull.com"
-      const endpoint = `${baseUrl}/api/human-predicts`
+      // 使用新的统计接口
+      const baseUrl = config.public.strapiApiUrl || "https://api.dashpull.com"
+      const endpoint = `${baseUrl}/api/human-predicts-statistics`
       
-      let allPredictions = []
-      let page = 1
-      const pageSize = 1000
-      let hasMore = true
+      // 获取认证token（如果有的话）
+      const token = config.public.strapiApiToken || 'd500bca2021bcb781b01959a2b5c7eca35104ead14e5a1c7a113e1b77030a9d798e3d0ea3be290c20050d000ac5d7c6cc021e57eda01e40b3c545e2d8da2b6c4b75ead96fa5e3ac2cae31ae76de74415371a7928094e271535d1ef786a1f2216e745df26d4aacf85021f5b86c9f2fe92644a9fa5a1f9d63699e43340409661ff'
       
-      // 分页获取数据，最多获取500条（5页）
-      while (hasMore && page <= 2) {
-        const searchParams = new URLSearchParams({
-          'sort': 'day:desc',
-          'pagination[page]': page.toString(),
-          'pagination[pageSize]': pageSize.toString(),
-          'populate': '*',
-          'filters[day][$gte]': '2025-02-27'
-        })
-        
-        const fullUrl = `${endpoint}?${searchParams.toString()}`
-        
-        // 直接调用Strapi API
-        const response = await $fetch(fullUrl, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer d500bca2021bcb781b01959a2b5c7eca35104ead14e5a1c7a113e1b77030a9d798e3d0ea3be290c20050d000ac5d7c6cc021e57eda01e40b3c545e2d8da2b6c4b75ead96fa5e3ac2cae31ae76de74415371a7928094e271535d1ef786a1f2216e745df26d4aacf85021f5b86c9f2fe92644a9fa5a1f9d63699e43340409661ff`
-          }
-        })
-        
-        if (response && response.data) {
-          const pageData = response.data.map(item => item.attributes)
-          allPredictions = allPredictions.concat(pageData)
-          
-          // 检查是否还有更多数据
-          const pagination = response.meta?.pagination
-          if (pagination && page >= pagination.pageCount) {
-            hasMore = false
-          } else if (pageData.length < pageSize) {
-            hasMore = false
-          }
-        } else {
-          hasMore = false
-        }
-        
-        page++
+      const headers = {
+        'Content-Type': 'application/json'
       }
       
-      predictions.value = allPredictions
+      // 如果有token，添加到headers中
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`
+      }
+      
+      // 调用新的统计接口
+      const response = await $fetch(endpoint, {
+        method: 'GET',
+        headers
+      })
+      
+      if (response) {
+        predictions.value = response.predictions || []
+        statistics.value = response.statistics || {
+          totalRecords: 0,
+          tradedCount: 0,
+          eventCount: 0,
+          longCount: 0,
+          shortCount: 0,
+          winRate: 0,
+          averageProfitRate: null
+        }
+      }
     } catch (err) {
       console.error('Failed to fetch predictions:', err)
       error.value = true
