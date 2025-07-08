@@ -3,6 +3,31 @@ const colorMode = useColorMode()
 
 const color = computed(() => colorMode.value === 'dark' ? '#111827' : 'white')
 
+// 全局错误处理
+if (process.client) {
+  window.addEventListener('error', (event) => {
+    console.warn('Global error caught:', event.error)
+    // 防止Sentry或其他扩展错误影响主应用
+    if (event.filename && event.filename.includes('chrome-extension://')) {
+      event.preventDefault()
+      return false
+    }
+  })
+
+  window.addEventListener('unhandledrejection', (event) => {
+    console.warn('Unhandled promise rejection:', event.reason)
+    // 处理一些已知的无害错误
+    if (event.reason && typeof event.reason === 'string') {
+      if (event.reason.includes('chrome-extension') || 
+          event.reason.includes('sentry') ||
+          event.reason.includes('Response with null body status')) {
+        event.preventDefault()
+        return false
+      }
+    }
+  })
+}
+
 useHead({
   meta: [
     { charset: 'utf-8' },

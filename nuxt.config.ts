@@ -48,6 +48,31 @@ export default defineNuxtConfig({
     }
   },
 
+  // 构建优化
+  build: {
+    transpile: ['@nuxt/ui-pro']
+  },
+
+  // Vite 配置
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'nuxt-ui': ['@nuxt/ui'],
+            'vue-vendor': ['vue', 'vue-router']
+          }
+        }
+      }
+    },
+    optimizeDeps: {
+      exclude: ['chrome-extension']
+    }
+  },
+
+  // SSR 配置
+  ssr: true,
+
   runtimeConfig: {
     // Public keys (exposed to client-side)
     public: {

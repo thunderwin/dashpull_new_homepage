@@ -212,8 +212,8 @@
                               <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400">-</span>
                               <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-gray-400">-</span>
                               <span v-else-if="prediction.profit_rate !== null && prediction.profit_rate !== undefined" 
-                                    :class="prediction.profit_rate >= 0 ? 'text-green-600' : 'text-red-600'">
-                                {{ (prediction.profit_rate >= 0 ? '+' : '') + prediction.profit_rate.toFixed(2) }}%
+                                    :class="(prediction.profit_rate || 0) >= 0 ? 'text-green-600' : 'text-red-600'">
+                                {{ ((prediction.profit_rate || 0) >= 0 ? '+' : '') + (prediction.profit_rate || 0).toFixed(2) }}%
                               </span>
                               <span v-else class="text-gray-400">-</span>
                             </div>
@@ -296,8 +296,13 @@
   
   // 事件翻译方法
   const translateEvent = (eventKey) => {
-    const { $t } = useNuxtApp()
-    return $t(`predictions.events.${eventKey}`, eventKey)
+    try {
+      const { $t } = useNuxtApp()
+      return $t(`predictions.events.${eventKey}`, eventKey)
+    } catch (error) {
+      console.warn('Translation error for event:', eventKey, error)
+      return eventKey || 'Unknown Event'
+    }
   }
   
   // 方法
@@ -327,12 +332,14 @@
       // 调用新的统计接口
       const response = await $fetch(endpoint, {
         method: 'GET',
-        headers
+        headers,
+        retry: 3,
+        timeout: 10000
       })
       
-      if (response) {
-        predictions.value = response.predictions || []
-        statistics.value = response.statistics || {
+      if (response && typeof response === 'object') {
+        predictions.value = Array.isArray(response.predictions) ? response.predictions : []
+        statistics.value = response.statistics && typeof response.statistics === 'object' ? response.statistics : {
           totalRecords: 0,
           tradedCount: 0,
           eventCount: 0,
@@ -341,24 +348,44 @@
           winRate: 0,
           averageProfitRate: null
         }
+      } else {
+        throw new Error('Invalid response format')
       }
     } catch (err) {
       console.error('Failed to fetch predictions:', err)
       error.value = true
+      // 设置默认值防止页面崩溃
+      predictions.value = []
+      statistics.value = {
+        totalRecords: 0,
+        tradedCount: 0,
+        eventCount: 0,
+        longCount: 0,
+        shortCount: 0,
+        winRate: 0,
+        averageProfitRate: null
+      }
     } finally {
       loading.value = false
     }
   }
   
   const formatDate = (dateString) => {
-    if (!dateString) return ''
-    const date = new Date(dateString)
-    const { $i18n } = useNuxtApp()
-    return date.toLocaleDateString($i18n.locale, {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    })
+    try {
+      if (!dateString) return ''
+      const date = new Date(dateString)
+      if (isNaN(date.getTime())) return dateString
+      
+      const { $i18n } = useNuxtApp()
+      return date.toLocaleDateString($i18n.locale, {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      })
+    } catch (error) {
+      console.warn('Date formatting error:', error)
+      return dateString || ''
+    }
   }
   
   // 生命周期

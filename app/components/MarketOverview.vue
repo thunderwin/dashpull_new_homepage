@@ -320,12 +320,14 @@ export default {
         // 直接调用新的统计接口
         const response = await $fetch(endpoint, {
           method: "GET",
-          headers
+          headers,
+          retry: 3,
+          timeout: 10000
         });
 
-        if (response && response.predictions && response.predictions.length > 0) {
+        if (response && typeof response === 'object' && Array.isArray(response.predictions)) {
           // 从预测数据中找到今天的数据
-          const todayPrediction = response.predictions.find(p => p.day === today);
+          const todayPrediction = response.predictions.find(p => p && p.day === today);
           this.prediction = todayPrediction || null;
         } else {
           this.prediction = null;
@@ -333,55 +335,80 @@ export default {
       } catch (err) {
         console.error("Failed to fetch prediction:", err);
         this.error = true;
+        this.prediction = null;
       } finally {
         this.loading = false;
       }
     },
 
     formatDate(dateString) {
-      if (!dateString) return "";
-      const date = new Date(dateString);
-      return date.toLocaleDateString(this.$i18n.locale, {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      });
+      try {
+        if (!dateString) return "";
+        const date = new Date(dateString);
+        if (isNaN(date.getTime())) return dateString;
+        
+        return date.toLocaleDateString(this.$i18n.locale, {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+      } catch (error) {
+        console.warn('Date formatting error:', error);
+        return dateString || '';
+      }
     },
 
     formatTimeUntilPrediction() {
-      const beijingTime = new Date(
-        this.currentTime.toLocaleString("en-US", { timeZone: "Asia/Shanghai" }),
-      );
-      const currentHour = beijingTime.getHours();
-      const currentMinute = beijingTime.getMinutes();
-      const currentSecond = beijingTime.getSeconds();
+      try {
+        const beijingTime = new Date(
+          this.currentTime.toLocaleString("en-US", { timeZone: "Asia/Shanghai" }),
+        );
+        const currentHour = beijingTime.getHours();
+        const currentMinute = beijingTime.getMinutes();
+        const currentSecond = beijingTime.getSeconds();
 
-      if (currentHour < 20) {
-        const hoursUntil = 19 - currentHour;
-        const minutesUntil = 59 - currentMinute;
-        const secondsUntil = 60 - currentSecond;
+        if (currentHour < 20) {
+          const hoursUntil = 19 - currentHour;
+          const minutesUntil = 59 - currentMinute;
+          const secondsUntil = 60 - currentSecond;
 
-        if (this.$i18n.locale === "zh") {
-          return `${hoursUntil}时${minutesUntil}分${secondsUntil}秒`;
-        } else {
-          return `${hoursUntil}h ${minutesUntil}m ${secondsUntil}s`;
+          if (this.$i18n.locale === "zh") {
+            return `${hoursUntil}时${minutesUntil}分${secondsUntil}秒`;
+          } else {
+            return `${hoursUntil}h ${minutesUntil}m ${secondsUntil}s`;
+          }
         }
-      }
 
-      return "";
+        return "";
+      } catch (error) {
+        console.warn('Time formatting error:', error);
+        return '';
+      }
     },
 
     // 事件翻译方法
     translateEvent(eventKey) {
-      return this.$t(`predictions.events.${eventKey}`, eventKey);
+      try {
+        if (!eventKey) return 'Unknown Event';
+        return this.$t(`predictions.events.${eventKey}`, eventKey);
+      } catch (error) {
+        console.warn('Translation error for event:', eventKey, error);
+        return eventKey || 'Unknown Event';
+      }
     },
 
     goToPredictionHistory() {
-      // 根据当前语言构建正确的路由路径
-      const localePath = useLocalePath();
-      this.$router.push(localePath("/prediction-history"));
+      try {
+        // 根据当前语言构建正确的路由路径
+        const localePath = useLocalePath();
+        this.$router.push(localePath("/prediction-history"));
+      } catch (error) {
+        console.error('Navigation error:', error);
+        // 回退到直接路由
+        this.$router.push("/prediction-history");
+      }
     },
   },
 };
