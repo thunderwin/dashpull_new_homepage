@@ -71,7 +71,7 @@
     </div>
 
     <!-- 显示预测结果 - 优化布局 -->
-    <div v-else-if="prediction && shouldShowPrediction" class="flex items-center justify-center">
+    <div v-else-if="prediction && (shouldShowPrediction || hasEvent)" class="flex items-center justify-center">
       <!-- 居中的内容区域，内部左右排列 -->
       <div class="flex items-center justify-between w-full max-w-6xl">
         <!-- 左侧：预测状态 -->
@@ -81,14 +81,18 @@
               <div
                 :class="[
                   'flex items-center justify-center w-14 h-14 rounded-full text-white shadow-lg',
-                  prediction.side === 'long'
+                  hasEvent 
+                    ? 'bg-gradient-to-br from-orange-400 to-orange-600'
+                    : prediction.side === 'long'
                     ? 'bg-gradient-to-br from-green-400 to-green-600'
                     : 'bg-gradient-to-br from-red-400 to-red-600',
                 ]"
               >
                 <UIcon
                   :name="
-                    prediction.side === 'long'
+                    hasEvent
+                      ? 'i-heroicons-exclamation-triangle'
+                      : prediction.side === 'long'
                       ? 'i-heroicons-arrow-trending-up'
                       : 'i-heroicons-arrow-trending-down'
                   "
@@ -98,45 +102,41 @@
               <div
                 :class="[
                   'absolute inset-0 rounded-full animate-ping opacity-20',
-                  prediction.side === 'long' ? 'bg-green-400' : 'bg-red-400',
+                  hasEvent 
+                    ? 'bg-orange-400'
+                    : prediction.side === 'long' ? 'bg-green-400' : 'bg-red-400',
                 ]"
               ></div>
             </div>
 
             <div>
               <UBadge
-                :color="prediction.side === 'long' ? 'green' : 'red'"
+                :color="hasEvent ? 'orange' : prediction.side === 'long' ? 'green' : 'red'"
                 variant="soft"
                 size="lg"
                 class="text-lg font-bold px-4 py-1 mb-1"
               >
                 {{
-                  prediction.side === "long"
+                  hasEvent
+                    ? translateEvent(prediction.events)
+                    : prediction.side === "long"
                     ? $t("prediction_component.side_long")
                     : $t("prediction_component.side_short")
                 }}
               </UBadge>
               <p class="text-base font-medium text-gray-600 dark:text-gray-300">
-                {{ $t("prediction_component.current_prediction") }}
+                {{ hasEvent ? $t("predictions.event") : $t("prediction_component.current_prediction") }}
               </p>
             </div>
           </div>
 
           <!-- 市场评分 -->
-          <div class="flex items-center space-x-3 bg-blue-50 dark:bg-blue-950/50 border-2 border-blue-200 dark:border-blue-800 rounded-lg px-4 py-1 shadow-lg">
+          <div v-if="!hasEvent" class="flex items-center space-x-3 bg-blue-50 dark:bg-blue-950/50 border-2 border-blue-200 dark:border-blue-800 rounded-lg px-4 py-1 shadow-lg">
             <UIcon name="i-heroicons-chart-bar-square" class="h-6 w-6 text-blue-600" />
             <span class="text-base font-bold text-blue-800 dark:text-blue-200">
               {{ $t("prediction_component.market_score") }}
             </span>
             <span class="text-2xl font-black text-blue-900 dark:text-blue-100">{{ predictionData.market_score }}</span>
-            <!-- <UBadge 
-              :color="Math.abs(predictionData.market_score) >= 0.2 ? 'green' : 'amber'" 
-              variant="soft"
-              size="sm"
-              class="font-bold text-sm px-2 py-1"
-            >
-              {{ Math.abs(predictionData.market_score) >= 0.2 ? '强势' : '温和' }}
-            </UBadge> -->
           </div>
         </div>
 
@@ -146,7 +146,7 @@
             <UIcon name="i-heroicons-clock" class="h-5 w-5" />
             <span>{{ formatDate(prediction.day) }}</span>
           </div>
-          <div v-if="hasStopLoss" class="flex space-x-1 justify-end">
+          <div v-if="hasStopLoss && !hasEvent" class="flex space-x-1 justify-end">
             <UBadge v-if="prediction.long_stoploss" color="green" variant="outline" size="sm" class="px-2 py-1 text-xs">
               多头止损: {{ prediction.long_stoploss }}
             </UBadge>
@@ -159,7 +159,7 @@
     </div>
 
     <!-- 没有建议状态 - 优化布局 -->
-    <div v-else-if="prediction && !shouldShowPrediction" class="flex items-center justify-center">
+    <div v-else-if="prediction && !shouldShowPrediction && !hasEvent" class="flex items-center justify-center">
       <!-- 居中的内容区域，内部左右排列 -->
       <div class="flex items-center justify-between w-full max-w-5xl">
         <!-- 左侧：主要内容 -->
@@ -249,9 +249,23 @@ export default {
       );
     },
 
+    // 是否有事件
+    hasEvent() {
+      return (
+        this.prediction &&
+        this.prediction.events &&
+        this.prediction.events !== 'none' &&
+        Math.abs(this.predictionData.market_score || 0) >= 0.15
+      );
+    },
+
     // 是否应该显示预测建议
     shouldShowPrediction() {
       if (!this.prediction || !this.predictionData.market_score) {
+        return false;
+      }
+      // 如果有事件，不显示预测建议
+      if (this.hasEvent) {
         return false;
       }
       return Math.abs(this.predictionData.market_score) >= 0.15;
@@ -357,6 +371,11 @@ export default {
       }
 
       return "";
+    },
+
+    // 事件翻译方法
+    translateEvent(eventKey) {
+      return this.$t(`predictions.events.${eventKey}`, eventKey);
     },
 
     goToPredictionHistory() {

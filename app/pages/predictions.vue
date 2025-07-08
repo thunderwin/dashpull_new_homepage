@@ -63,7 +63,8 @@
         <div v-else class="bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden">
           <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-              <thead class="bg-gray-50 dark:bg-gray-700">
+              <!-- 桌面端表头 -->
+              <thead class="bg-gray-50 dark:bg-gray-700 hidden md:table-header-group">
                 <tr>
                   <th class="w-1/5 px-4 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     {{ $t('predictions.date') }}
@@ -84,84 +85,170 @@
               </thead>
               <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
                 <tr v-for="(prediction, index) in predictions" :key="index" class="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-                  <!-- 日期 -->
-                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                    {{ formatDate(prediction.day) }}
-                  </td>
+                  <!-- 桌面端显示 -->
+                  <template v-if="!isMobile">
+                    <!-- 日期 -->
+                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                      {{ formatDate(prediction.day) }}
+                    </td>
+                    
+                    <!-- 预测方向 -->
+                    <td class="px-4 py-4 whitespace-nowrap text-center">
+                      <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400 text-xs">
+                        {{ $t('predictions.no_direction') }}
+                      </span>
+                      <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-orange-500 text-xs">
+                        {{ translateEvent(prediction.events) }}
+                      </span>
+                      <span v-else-if="!prediction.side" class="text-gray-400 text-xs">
+                        {{ $t('predictions.hidden') }}
+                      </span>
+                      <span 
+                        v-else
+                        :class="[
+                          'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
+                          prediction.side === 'long' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+                        ]"
+                      >
+                        {{ prediction.side === 'long' ? $t('prediction_component.side_long') : $t('prediction_component.side_short') }}
+                      </span>
+                    </td>
+                    
+                    <!-- 信号强度 -->
+                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white text-center">
+                      <span :class="(prediction.market_score || 0) > 0 ? 'text-green-600' : 'text-red-600'">
+                        {{ prediction.market_score || '-' }}
+                      </span>
+                    </td>
+                    
+                    <!-- 盈利率 -->
+                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white text-center">
+                      <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400">
+                        -
+                      </span>
+                      <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-gray-400">
+                        -
+                      </span>
+                      <span v-else-if="prediction.profit_rate !== null && prediction.profit_rate !== undefined" 
+                            :class="prediction.profit_rate >= 0 ? 'text-green-600' : 'text-red-600'">
+                        {{ (prediction.profit_rate >= 0 ? '+' : '') + prediction.profit_rate.toFixed(2) }}%
+                      </span>
+                      <span v-else class="text-gray-400">
+                        -
+                      </span>
+                    </td>
+                    
+                    <!-- 结果 -->
+                    <td class="px-4 py-4 whitespace-nowrap text-center">
+                      <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400 text-xs">
+                        {{ $t('predictions.break') }}
+                      </span>
+                      <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-orange-500 text-xs">
+                        {{ $t('predictions.event') }}
+                      </span>
+                      <span 
+                        v-else-if="prediction.result && prediction.result !== null"
+                        :class="[
+                          'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
+                          prediction.result === 'yes' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 
+                          prediction.result === 'no' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' :
+                          'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+                        ]"
+                      >
+                        {{ 
+                          prediction.result === 'yes' ? '✓ ' + $t('predictions.win') : 
+                          prediction.result === 'no' ? '✗ ' + $t('predictions.loss') : 
+                          '⊕ ' + $t('predictions.stop_loss')
+                        }}
+                      </span>
+                      <span v-else class="text-gray-400 text-xs">
+                        {{ $t('predictions.pending') }}
+                      </span>
+                    </td>
+                  </template>
                   
-                  <!-- 预测方向 -->
-                  <td class="px-4 py-4 whitespace-nowrap text-center">
-                    <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400 text-xs">
-                      {{ $t('predictions.no_direction') }}
-                    </span>
-                    <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-orange-500 text-xs">
-                      {{ prediction.events }}
-                    </span>
-                    <span v-else-if="!prediction.side" class="text-gray-400 text-xs">
-                      {{ $t('predictions.hidden') }}
-                    </span>
-                    <span 
-                      v-else
-                      :class="[
-                        'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
-                        prediction.side === 'long' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-                      ]"
-                    >
-                      {{ prediction.side === 'long' ? $t('prediction_component.side_long') : $t('prediction_component.side_short') }}
-                    </span>
-                  </td>
-                  
-                  <!-- 信号强度 -->
-                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white text-center">
-                    <span :class="(prediction.market_score || 0) > 0 ? 'text-green-600' : 'text-red-600'">
-                      {{ prediction.market_score || '-' }}
-                    </span>
-                  </td>
-                  
-                  <!-- 盈利率 -->
-                  <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white text-center">
-                    <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400">
-                      -
-                    </span>
-                    <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-gray-400">
-                      -
-                    </span>
-                    <span v-else-if="prediction.profit_rate !== null && prediction.profit_rate !== undefined" 
-                          :class="prediction.profit_rate >= 0 ? 'text-green-600' : 'text-red-600'">
-                      {{ (prediction.profit_rate >= 0 ? '+' : '') + prediction.profit_rate.toFixed(2) }}%
-                    </span>
-                    <span v-else class="text-gray-400">
-                      -
-                    </span>
-                  </td>
-                  
-                  <!-- 结果 -->
-                  <td class="px-4 py-4 whitespace-nowrap text-center">
-                    <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400 text-xs">
-                      {{ $t('predictions.break') }}
-                    </span>
-                    <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-orange-500 text-xs">
-                      {{ $t('predictions.event') }}
-                    </span>
-                    <span 
-                      v-else-if="prediction.result && prediction.result !== null"
-                      :class="[
-                        'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
-                        prediction.result === 'yes' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 
-                        prediction.result === 'no' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' :
-                        'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
-                      ]"
-                    >
-                      {{ 
-                        prediction.result === 'yes' ? '✓ ' + $t('predictions.win') : 
-                        prediction.result === 'no' ? '✗ ' + $t('predictions.loss') : 
-                        '⊕ ' + $t('predictions.stop_loss')
-                      }}
-                    </span>
-                    <span v-else class="text-gray-400 text-xs">
-                      {{ $t('predictions.pending') }}
-                    </span>
-                  </td>
+                  <!-- 手机端紧凑显示 -->
+                  <template v-else>
+                    <td class="px-3 py-3 w-full" colspan="5">
+                      <div class="flex flex-col space-y-2">
+                        <!-- 第一行：日期和预测方向 -->
+                        <div class="flex items-center justify-between">
+                          <div class="text-sm font-medium text-gray-900 dark:text-white">
+                            {{ formatDate(prediction.day) }}
+                          </div>
+                          <div class="flex items-center space-x-2">
+                            <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400 text-xs">
+                              {{ $t('predictions.no_direction') }}
+                            </span>
+                            <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-orange-500 text-xs">
+                              {{ translateEvent(prediction.events) }}
+                            </span>
+                            <span v-else-if="!prediction.side" class="text-gray-400 text-xs">
+                              {{ $t('predictions.hidden') }}
+                            </span>
+                            <span 
+                              v-else
+                              :class="[
+                                'inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium',
+                                prediction.side === 'long' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+                              ]"
+                            >
+                              {{ prediction.side === 'long' ? $t('prediction_component.side_long') : $t('prediction_component.side_short') }}
+                            </span>
+                          </div>
+                        </div>
+                        
+                        <!-- 第二行：信号强度、盈利率和结果 -->
+                        <div class="flex items-center justify-between text-sm">
+                          <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-1">
+                              <span class="text-gray-500 dark:text-gray-400">评分:</span>
+                              <span :class="(prediction.market_score || 0) > 0 ? 'text-green-600' : 'text-red-600'">
+                                {{ prediction.market_score || '-' }}
+                              </span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                              <span class="text-gray-500 dark:text-gray-400">收益:</span>
+                              <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400">-</span>
+                              <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-gray-400">-</span>
+                              <span v-else-if="prediction.profit_rate !== null && prediction.profit_rate !== undefined" 
+                                    :class="prediction.profit_rate >= 0 ? 'text-green-600' : 'text-red-600'">
+                                {{ (prediction.profit_rate >= 0 ? '+' : '') + prediction.profit_rate.toFixed(2) }}%
+                              </span>
+                              <span v-else class="text-gray-400">-</span>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <span v-if="Math.abs(prediction.market_score || 0) < 0.15" class="text-gray-400 text-xs">
+                              {{ $t('predictions.break') }}
+                            </span>
+                            <span v-else-if="prediction.events && prediction.events !== 'none'" class="text-orange-500 text-xs">
+                              {{ $t('predictions.event') }}
+                            </span>
+                            <span 
+                              v-else-if="prediction.result && prediction.result !== null"
+                              :class="[
+                                'inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium',
+                                prediction.result === 'yes' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 
+                                prediction.result === 'no' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' :
+                                'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+                              ]"
+                            >
+                              {{ 
+                                prediction.result === 'yes' ? '✓ ' + $t('predictions.win') : 
+                                prediction.result === 'no' ? '✗ ' + $t('predictions.loss') : 
+                                '⊕ ' + $t('predictions.stop_loss')
+                              }}
+                            </span>
+                            <span v-else class="text-gray-400 text-xs">
+                              {{ $t('predictions.pending') }}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </template>
                 </tr>
               </tbody>
             </table>
@@ -182,7 +269,7 @@
   </template>
   
   <script setup>
-  import { ref, onMounted } from 'vue'
+  import { ref, computed, onMounted, onUnmounted } from 'vue'
   
   // 响应式数据
   const predictions = ref([])
@@ -197,6 +284,21 @@
   })
   const loading = ref(true)
   const error = ref(false)
+  const windowWidth = ref(0)
+  
+  // 检测是否为移动设备
+  const isMobile = computed(() => windowWidth.value < 768)
+  
+  // 更新窗口宽度
+  const updateWindowWidth = () => {
+    windowWidth.value = window.innerWidth
+  }
+  
+  // 事件翻译方法
+  const translateEvent = (eventKey) => {
+    const { $t } = useNuxtApp()
+    return $t(`predictions.events.${eventKey}`, eventKey)
+  }
   
   // 方法
   const fetchPredictions = async () => {
@@ -262,6 +364,12 @@
   // 生命周期
   onMounted(() => {
     fetchPredictions()
+    updateWindowWidth()
+    window.addEventListener('resize', updateWindowWidth)
+  })
+  
+  onUnmounted(() => {
+    window.removeEventListener('resize', updateWindowWidth)
   })
   
   // SEO

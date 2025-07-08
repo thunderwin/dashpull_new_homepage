@@ -123,7 +123,18 @@
     "stop_loss": "止損",
     "pending": "待定",
     "break": "休息",
-    "event": "事件"
+    "event": "事件",
+    "hidden": "隱藏",
+    "events": {
+      "under-maintenance": "系統維護",
+      "non-farm-payrolls": "非農就業數據",
+      "fomc-meeting": "美聯儲會議",
+      "earnings-season": "財報季",
+      "market-holiday": "市場假期",
+      "economic-data": "經濟數據發佈",
+      "volatility-spike": "波動率飆升",
+      "major-announcement": "重大公告"
+    }
   },
   "market_overview": {
     "loading": "正在載入市場資料...",

@@ -123,7 +123,18 @@
     "stop_loss": "Stop Loss",
     "pending": "Pending",
     "break": "Break",
-    "event": "Event"
+    "event": "Event",
+    "hidden": "Hidden",
+    "events": {
+      "under-maintenance": "Under Maintenance",
+      "non-farm-payrolls": "Non-Farm Payrolls",
+      "fomc-meeting": "FOMC Meeting",
+      "earnings-season": "Earnings Season",
+      "market-holiday": "Market Holiday",
+      "economic-data": "Economic Data Release",
+      "volatility-spike": "Volatility Spike",
+      "major-announcement": "Major Announcement"
+    }
   },
   "market_overview": {
     "loading": "Loading market data...",

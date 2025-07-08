@@ -123,7 +123,18 @@
     "stop_loss": "止损",
     "pending": "待定",
     "break": "休息",
-    "event": "事件"
+    "event": "事件",
+    "hidden": "隐藏",
+    "events": {
+      "under-maintenance": "系统维护",
+      "non-farm-payrolls": "非农就业数据",
+      "fomc-meeting": "美联储会议",
+      "earnings-season": "财报季",
+      "market-holiday": "市场假期",
+      "economic-data": "经济数据发布",
+      "volatility-spike": "波动率飙升",
+      "major-announcement": "重大公告"
+    }
   },
   "market_overview": {
     "loading": "正在加载市场数据...",
