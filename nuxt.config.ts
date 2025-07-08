@@ -59,7 +59,6 @@ export default defineNuxtConfig({
       rollupOptions: {
         output: {
           manualChunks: {
-            'nuxt-ui': ['@nuxt/ui'],
             'vue-vendor': ['vue', 'vue-router']
           }
         }
