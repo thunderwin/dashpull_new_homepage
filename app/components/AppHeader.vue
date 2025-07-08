@@ -7,27 +7,29 @@ const items = computed(() => [{
   label: t('nav.predictions'),
   to: localePath('/predictions'),
   active: route.path.startsWith('/predictions')
-}, {
-  label: t('nav.screeners'),
-  to: localePath('/screeners'),
-  active: route.path.startsWith('/screeners'),
-  children: [{
-    label: t('screeners.growth.title'),
-    to: localePath('/screeners/growth')
-  }, {
-    label: t('screeners.momentum.title'),
-    to: localePath('/screeners/momentum')
-  }, {
-    label: t('screeners.dividend.title'),
-    to: localePath('/screeners/dividend')
-  }, {
-    label: t('screeners.value.title'),
-    to: localePath('/screeners/value')
-  }]
-}, {
-  label: t('nav.plans'),
-  to: localePath('/plans')
-}, {
+}
+// , {
+//   label: t('nav.screeners'),
+//   to: localePath('/screeners'),
+//   active: route.path.startsWith('/screeners'),
+//   children: [{
+//     label: t('screeners.growth.title'),
+//     to: localePath('/screeners/growth')
+//   }, {
+//     label: t('screeners.momentum.title'),
+//     to: localePath('/screeners/momentum')
+//   }, {
+//     label: t('screeners.dividend.title'),
+//     to: localePath('/screeners/dividend')
+//   }, {
+//     label: t('screeners.value.title'),
+//     to: localePath('/screeners/value')
+//   }]
+// }, {
+//   label: t('nav.plans'),
+//   to: localePath('/plans')
+// }
+, {
   label: t('nav.about'),
   to: localePath('/blog/about-dashpull-journey')
 }, {
@@ -57,6 +59,7 @@ const items = computed(() => [{
     <template #right>
       <LanguageSwitcher />
       <!-- <UColorModeButton /> -->
+      <!-- 
       <UButton
         :label="t('auth.login')"
         color="neutral"
@@ -70,6 +73,7 @@ const items = computed(() => [{
         class="hidden lg:flex"
         :to="localePath('/signup')"
       />
+      -->
     </template>
 
     <template #body>
@@ -86,6 +90,7 @@ const items = computed(() => [{
         <LanguageSwitcher />
       </div>
 
+      <!-- 
       <UButton
         :label="t('auth.login')"
         color="neutral"
@@ -100,6 +105,7 @@ const items = computed(() => [{
         :to="localePath('/signup')"
         block
       />
+      -->
     </template>
   </UHeader>
 </template>
