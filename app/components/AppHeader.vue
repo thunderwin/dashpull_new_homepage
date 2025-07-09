@@ -25,10 +25,13 @@ const items = computed(() => [{
 //     label: t('screeners.value.title'),
 //     to: localePath('/screeners/value')
 //   }]
-// }, {
-//   label: t('nav.plans'),
-//   to: localePath('/plans')
 // }
+// ,
+,{
+  label: t('nav.plans'),
+  to: localePath('/plans'),
+  active: route.path.startsWith('/plans')
+}
 , {
   label: t('nav.about'),
   to: localePath('/blog/about-dashpull-journey')
