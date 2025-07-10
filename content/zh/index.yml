@@ -74,6 +74,7 @@ cta:
   title: 立即开始您的AI投资之旅！
   description: 加入我们的投资社区，获取专业的AI驱动股票和加密货币预测。让科技为您的投资保驾护航。
   links:
+   
     - label: 查看方案
       to: '/plans'
       trailingIcon: i-lucide-circle-help

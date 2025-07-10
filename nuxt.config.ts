@@ -83,6 +83,23 @@ export default defineNuxtConfig({
         : 'd500bca2021bcb781b01959a2b5c7eca35104ead14e5a1c7a113e1b77030a9d798e3d0ea3be290c20050d000ac5d7c6cc021e57eda01e40b3c545e2d8da2b6c4b75ead96fa5e3ac2cae31ae76de74415371a7928094e271535d1ef786a1f2216e745df26d4aacf85021f5b86c9f2fe92644a9fa5a1f9d63699e43340409661ff'
     }
   },
+  
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/trend-up.svg' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/trend-up.svg' },
+        { rel: 'icon', type: 'image/svg+xml', sizes: '32x32', href: '/trend-up.svg' },
+        { rel: 'icon', type: 'image/svg+xml', sizes: '16x16', href: '/trend-up.svg' },
+        { rel: 'shortcut icon', href: '/trend-up.svg' }
+      ],
+      meta: [
+        { property: 'og:image', content: '/trend-up.svg' },
+        { name: 'theme-color', content: '#ffffff' }
+      ]
+    }
+  },
+  
   i18n: {
     baseUrl: process.env.APP_URL || "https://www.dashpull.com",
     locales: [

@@ -74,9 +74,6 @@ cta:
   title: Start Your AI Investment Journey Today!
   description: Join our investment community and get professional AI-powered stock and cryptocurrency predictions. Let technology safeguard your investments.
   links:
-    - label: Free Trial
-      to: '/signup'
-      icon: i-lucide-rocket
     - label: View Plans
       to: '/plans'
       trailingIcon: i-lucide-circle-help
