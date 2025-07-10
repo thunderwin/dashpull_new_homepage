@@ -274,6 +274,12 @@
       }
     }
   },
+  "plans": {
+    "qr_contact_title": "聯絡我們獲取專業服務",
+    "qr_contact_description": "掃描二維碼添加我們的客服，獲取專業的投資建議和個性化服務",
+    "wechat_contact": "微信客服",
+    "whatsapp_contact": "WhatsApp客服"
+  },
   "footer": {
     "copyright": "© 2024 DashPull. 版權所有。",
     "privacy": "私隱政策",

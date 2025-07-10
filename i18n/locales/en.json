@@ -274,6 +274,12 @@
       }
     }
   },
+  "plans": {
+    "qr_contact_title": "Contact Us for Professional Services",
+    "qr_contact_description": "Scan the QR code to add our customer service and get professional investment advice and personalized services",
+    "wechat_contact": "WeChat Support",
+    "whatsapp_contact": "WhatsApp Support"
+  },
   "footer": {
     "copyright": "© 2024 DashPull. All rights reserved.",
     "privacy": "Privacy Policy",

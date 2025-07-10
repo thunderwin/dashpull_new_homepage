@@ -274,6 +274,12 @@
       }
     }
   },
+  "plans": {
+    "qr_contact_title": "联系我们获取专业服务",
+    "qr_contact_description": "扫描二维码添加我们的客服，获取专业的投资建议和个性化服务",
+    "wechat_contact": "微信客服",
+    "whatsapp_contact": "WhatsApp客服"
+  },
   "footer": {
     "copyright": "© 2024 DashPull. 保留所有权利。",
     "privacy": "隐私政策",
