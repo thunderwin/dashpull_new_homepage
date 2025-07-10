@@ -66,19 +66,22 @@
               <!-- 桌面端表头 -->
               <thead class="bg-gray-50 dark:bg-gray-700 hidden md:table-header-group">
                 <tr>
-                  <th class="w-1/5 px-4 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  <th class="w-1/6 px-4 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     {{ $t('predictions.date') }}
                   </th>
-                  <th class="w-1/5 px-4 py-4 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  <th class="w-1/6 px-4 py-4 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     {{ $t('predictions.prediction') }}
                   </th>
-                  <th class="w-1/5 px-4 py-4 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  <th class="w-1/6 px-4 py-4 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     {{ $t('predictions.long_short_score') }}
                   </th>
-                  <th class="w-1/5 px-4 py-4 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  <th class="w-1/6 px-4 py-4 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                    {{ $t('predictions.chart') }}
+                  </th>
+                  <th class="w-1/6 px-4 py-4 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     {{ $t('predictions.profit_rate') }}
                   </th>
-                  <th class="w-1/5 px-4 py-4 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  <th class="w-1/6 px-4 py-4 text-center text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     {{ $t('predictions.result') }}
                   </th>
                 </tr>
@@ -119,6 +122,19 @@
                       <span :class="(prediction.market_score || 0) > 0 ? 'text-green-600' : 'text-red-600'">
                         {{ prediction.market_score || '-' }}
                       </span>
+                    </td>
+                    
+                    <!-- K线图 -->
+                    <td class="px-4 py-4 whitespace-nowrap text-center">
+                      <div class="flex justify-center">
+                        <CandlestickBar 
+                          v-if="prediction.spy_kline && prediction.spy_kline.length > 0"
+                          :data="prediction.spy_kline[0]"
+                          :width="40"
+                          :height="36"
+                        />
+                        <span v-else class="text-gray-400 text-xs">-</span>
+                      </div>
                     </td>
                     
                     <!-- 盈利率 -->
@@ -169,7 +185,7 @@
                   
                   <!-- 手机端紧凑显示 -->
                   <template v-else>
-                    <td class="px-3 py-3 w-full" colspan="5">
+                    <td class="px-3 py-3 w-full" colspan="6">
                       <div class="flex flex-col space-y-2">
                         <!-- 第一行：日期和预测方向 -->
                         <div class="flex items-center justify-between">
@@ -245,6 +261,15 @@
                               {{ $t('predictions.pending') }}
                             </span>
                           </div>
+                        </div>
+                        
+                        <!-- 第三行：K线图 -->
+                        <div v-if="prediction.spy_kline && prediction.spy_kline.length > 0" class="flex justify-center pt-2">
+                          <CandlestickBar 
+                            :data="prediction.spy_kline[0]"
+                            :width="36"
+                            :height="32"
+                          />
                         </div>
                       </div>
                     </td>
