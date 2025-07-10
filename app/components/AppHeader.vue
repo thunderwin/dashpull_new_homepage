@@ -33,6 +33,9 @@ const items = computed(() => [{
   active: route.path.startsWith('/plans')
 }
 , {
+  label: t('nav.guide'),
+  to: localePath('/blog/dashpull-trading-guide')
+}, {
   label: t('nav.about'),
   to: localePath('/blog/about-dashpull-journey')
 }, {

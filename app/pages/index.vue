@@ -35,7 +35,7 @@ useSeoMeta({
         <StarsBg />
       </template>
 
-      <!-- <PromotionalVideo /> -->
+      <PromotionalVideo />
     </UPageHero>
 
     <!-- 邮件订阅 Section -->

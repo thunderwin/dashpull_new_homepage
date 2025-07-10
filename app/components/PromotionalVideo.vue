@@ -1,29 +1,22 @@
 <template>
-  <div class="relative">
-    <UPageCard
-      variant="subtle"
-      class="rounded-2xl"
-    >
-      <video
-        class="rounded-xl"
-        data-v-baf90ddd=""
-        preload="none"
-        poster="https://res.cloudinary.com/nuxt/video/upload/so_3.3/v1708511800/ui-pro/video-nuxt-ui-pro_kwfbdh.jpg"
+  <div v-if="locale !== 'en'" class="relative w-full">
+    <UPageCard variant="subtle" class="rounded-2xl">
+      <video 
+        class="w-full h-auto rounded-xl" 
+        preload="auto" 
         :controls="true"
-      ><source
-        data-v-baf90ddd=""
-        src="https://res.cloudinary.com/nuxt/video/upload/v1708511800/ui-pro/video-nuxt-ui-pro_kwfbdh.webm"
-        type="video/webm"
-      ><source
-        data-v-baf90ddd=""
-        src="https://res.cloudinary.com/nuxt/video/upload/v1708511800/ui-pro/video-nuxt-ui-pro_kwfbdh.mp4"
-        type="video/mp4"
-      ><source
-        data-v-baf90ddd=""
-        src="https://res.cloudinary.com/nuxt/video/upload/v1708511800/ui-pro/video-nuxt-ui-pro_kwfbdh.ogg"
-        type="video/ogg"
+        autoplay
+        loop
       >
+        <source
+          src="https://img.dashpull.com/helper-dashpull.mp4"
+          type="video/mp4"
+        />
       </video>
     </UPageCard>
   </div>
 </template>
+
+<script setup>
+const { locale } = useI18n()
+</script>

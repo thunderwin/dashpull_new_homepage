@@ -135,11 +135,11 @@ if (post.image?.src) {
         <div v-if="relatedPosts.some(item => item !== null)" class="grid gap-8 sm:grid-cols-2">
           <!-- 上一篇文章 -->
           <div v-if="relatedPosts[0]" class="group">
-            <NuxtLink :to="relatedPosts[0]._path" class="flex items-center gap-3 p-4 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
-              <UIcon name="i-lucide-arrow-left" class="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors flex-shrink-0" />
+            <NuxtLink :to="relatedPosts[0]._path" class="flex items-center gap-3 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
+              <UIcon name="i-lucide-arrow-left" class="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors flex-shrink-0" />
               <div class="min-w-0">
-                <div class="text-sm font-medium text-gray-900 truncate">{{ relatedPosts[0].title }}</div>
-                <div class="text-sm text-gray-500 line-clamp-2 mt-1">{{ relatedPosts[0].description }}</div>
+                <div class="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">{{ relatedPosts[0].title }}</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mt-1">{{ relatedPosts[0].description }}</div>
               </div>
             </NuxtLink>
           </div>
@@ -149,12 +149,12 @@ if (post.image?.src) {
 
           <!-- 下一篇文章 -->
           <div v-if="relatedPosts[1]" class="group">
-            <NuxtLink :to="relatedPosts[1]._path" class="flex items-center gap-3 p-4 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
+            <NuxtLink :to="relatedPosts[1]._path" class="flex items-center gap-3 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
               <div class="min-w-0 text-right">
-                <div class="text-sm font-medium text-gray-900 truncate">{{ relatedPosts[1].title }}</div>
-                <div class="text-sm text-gray-500 line-clamp-2 mt-1">{{ relatedPosts[1].description }}</div>
+                <div class="text-sm font-medium text-gray-900 dark:text-gray-100 truncate">{{ relatedPosts[1].title }}</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mt-1">{{ relatedPosts[1].description }}</div>
               </div>
-              <UIcon name="i-lucide-arrow-right" class="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors flex-shrink-0" />
+              <UIcon name="i-lucide-arrow-right" class="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors flex-shrink-0" />
             </NuxtLink>
           </div>
         </div>
