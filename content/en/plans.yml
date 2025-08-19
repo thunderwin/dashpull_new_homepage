@@ -24,26 +24,7 @@ plans:
       - Email subscription for daily updates
       - Ideal for experience
       - Suitable for amateur traders
-  - title: Pro Plan
-    description: |
-      Includes all features of the Free Plan.
-      Additionally, receive high-confidence market alerts (about 3 to 4 times per month).
-      These alerts are special signals from our AI model with extremely high confidence, helping you seize the best trading opportunities.
-      Suitable for users who want to pursue higher returns.
-    price:
-      month: $250
-    billing_period: Monthly
-    billing_cycle: Monthly
-    highlight: true
-    scale: true
-    button:
-      label: Upgrade Now
-    features:
-      - Free daily market predictions and scores
-      - Email subscription for daily updates
-      - High-confidence prediction alerts (3-4 times/month)
-      - Suitable for professional traders
-  - title: Premium Plan (Capital Verification, $100K+)
+  - title: Paid Plan (Capital Verification, $100K+)
     description: |
       Includes all features of the Free Plan.
       Additionally, receive high-confidence market alerts (about 3 to 4 times per month).
