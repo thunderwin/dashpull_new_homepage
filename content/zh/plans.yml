@@ -24,14 +24,14 @@ plans:
       - 邮件订阅每日自动推送
       - 适合体验
       - 适合业余交易者
-  - title: 付费计划
+  - title: 付费计划（验资，10万美金起）
     description: |
       包含免费计划的所有功能。
       额外享受高度确定性行情提醒（每月大约3到4次）。
       这些提醒是我们AI模型信心极高的特殊行情信号，帮助你把握最有把握的交易机会。
       适合希望追求更高收益的用户。
     price:
-      month: ￥2000
+      month: ￥5000
     billing_period: 每月
     billing_cycle: 月付
     highlight: true
