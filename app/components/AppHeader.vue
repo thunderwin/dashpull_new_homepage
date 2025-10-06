@@ -4,11 +4,11 @@ const { t } = useI18n()
 const localePath = useLocalePath()
 
 const items = computed(() => [
-  {
-  label: t('nav.predictions'),
-  to: localePath('/predictions'),
-  active: route.path.startsWith('/predictions')
-}
+//   {
+//   label: t('nav.predictions'),
+//   to: localePath('/predictions'),
+//   active: route.path.startsWith('/predictions')
+// }
 // , {
 //   label: t('nav.screeners'),
 //   to: localePath('/screeners'),

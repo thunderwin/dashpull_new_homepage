@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- 趋势线 -->
-  <path d="M3 17 L9 11 L13 15 L21 7" stroke="currentColor" stroke-width="2.5"/>
-  
-  <!-- 箭头 -->
-  <path d="M16 7 L21 7 L21 12" stroke="currentColor" stroke-width="2.5" fill="none"/>
- 
-</svg> 
